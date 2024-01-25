@@ -1,8 +1,16 @@
-# React + Vite
+site need to clone: 
+<!-- ============1st ========== -->
+https://paulm160.sg-host.com/ // need to clone this
+We need to clone it and improve
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- =============2nd========== -->
+http://www.paulm168.sg-host.com/ // this for idea because 1st one website routing issue
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- ===========UI site=========== -->
+https://rfr.com/home
+And we need to use some UIs of this website.
+
+
+<!-- =================Other reasons=========== -->
+In the first reference website, all the internal content pages are not loading for some strange reason

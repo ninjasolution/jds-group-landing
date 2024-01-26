@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'perfetto';
+    src: url('/fonts/perfetto-regular-webfont2d79.woff') format('truetype');
+    /* Add other font formats if necessary */
+}
+body{
+    font-family: 'perfetto', sans-serif;
+}
 ::selection {
     background: #7c7262;
 }
@@ -50,6 +58,7 @@
     .container_wrapper {
         width: calc(100% - 80px);
     }
+
     #header {
         height: 80px
     }
@@ -59,7 +68,14 @@
     .container_wrapper {
         width: calc(100% - 40px);
     }
+
     #header {
         height: 80px
     }
 }
+
+// =====================global classes ===================
+.text_primary{
+    color: #7c7262;
+}
+// =====================global classes ===================End

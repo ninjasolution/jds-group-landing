@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import PymbleRoad from "../../assets/icons/PymbleRoad.svg";
 import TeleLogo from "../../assets/icons/TeleLogo.svg";
 import Navigation from "./Navigation";
+import { Link } from "react-router-dom";
 function Navbar(props) {
   const [toggle, setToggle] = useState(false);
   const hamburger_btn_ref = useRef(null);
@@ -13,17 +14,16 @@ function Navbar(props) {
       </a>
       <ul className="flex items-center">
         <li className="me-6">
-          <a className="text_primary" href="#">
+          <a className="text_primary text-sm" href="#">
             LANGUAGES
           </a>
         </li>
         <li className="me-6">
-          <a className="text_primary hover:underline" href="#">
-            CONTACT
-          </a>
+          <Link to={'/contact'} className="text_primary text-sm hover:underline">CONTACT</Link>
         </li>
         <li className="text_primary min-w-[25px]">
-          <div ref={hamburger_btn_ref}
+          <div
+            ref={hamburger_btn_ref}
             onClick={() => setToggle(!toggle)}
             className={`hamburger hamburger--collapse ${
               toggle ? "is-active" : ""
@@ -41,7 +41,11 @@ function Navbar(props) {
           </div>
         </li>
       </ul>
-      <Navigation toggle={toggle} setToggle={setToggle} hamburger_btn_ref={hamburger_btn_ref} />
+      <Navigation
+        toggle={toggle}
+        setToggle={setToggle}
+        hamburger_btn_ref={hamburger_btn_ref}
+      />
     </div>
   );
 }

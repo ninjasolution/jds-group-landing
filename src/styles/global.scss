@@ -78,4 +78,13 @@ body{
 .text_primary{
     color: #7c7262;
 }
+.custom_select label{
+    color: white!important;
+    border: none;
+    outline: none;
+    &::after,
+    &::before{
+        border: none!important;
+    }
+}
 // =====================global classes ===================End

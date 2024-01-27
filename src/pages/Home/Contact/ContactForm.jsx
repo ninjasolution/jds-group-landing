@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { Select, Option } from "@material-tailwind/react";
 function ContactForm(props) {
   return (
     <form action="" className="max-w-[600px] mx-auto p-8 text-white">
@@ -93,12 +93,22 @@ function ContactForm(props) {
         />
       </div>
       <div className="input_group">
-        <input
-          type="text"
-          name="about_hear"
-          className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder="HOW DID YOU HEAR ABOUT US?"
-        />
+        <div className="custom_select">
+          <Select
+            label="HOW DID YOU HEAR ABOUT US?"
+            className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9  !text-white p-[5px_10px] mb-2 placeholder:text-white"
+          >
+            <Option>CURBED.COM</Option>
+            <Option>EBLAST</Option>
+            <Option>EVENTS</Option>
+            <Option>NEWSPAPERS/MEGAZINE</Option>
+            <Option>NY TIMES.COM</Option>
+            <Option>ONLINE SEARCH</Option>
+            <Option>REAL DEAL</Option>
+            <Option>REFERRAL</Option>
+            <Option>SITE SIGNAGE</Option>
+          </Select>
+        </div>
       </div>
       <div className="input_group">
         <div className="flex items-center justify-between">
@@ -106,14 +116,23 @@ function ContactForm(props) {
           <div className="flex items-center">
             <div className="mx-3">
               <input type="radio" name="broker" id="broker_yes" />
-              <label htmlFor="broker_yes" className="text-sm ms-1">Yes</label>
+              <label htmlFor="broker_yes" className="text-sm ms-1">
+                Yes
+              </label>
             </div>
             <div className="">
               <input type="radio" name="broker" id="broker_no" />
-              <label htmlFor="broker_no" className="text-sm ms-1">No</label>
+              <label htmlFor="broker_no" className="text-sm ms-1">
+                No
+              </label>
             </div>
           </div>
         </div>
+      </div>
+      <div className="input_group text-center mt-6 ">
+        <button className="inline-block p-[5px_20px] text-sm bg-white hover:bg-primary-2 text-black hover:text-white">
+          SUBMIT
+        </button>
       </div>
     </form>
   );

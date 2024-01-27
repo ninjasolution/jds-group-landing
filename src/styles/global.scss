@@ -128,5 +128,15 @@ body {
        
     }
 }
-
+.arrow_btn{
+    border-color: transparent;
+    border-top-color: #4d4e4c;
+    border-width: 12px;
+    transition: transform .2s ease-in-out;
+    &:hover{
+        transform: translateY(3px);
+    }
+}
 // =====================global classes ===================End
+
+

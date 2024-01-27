@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // ==========Pages =========
 import Base from "../layout/base/Base";
 import Home from "../pages/Home/Home";
-import Contact from "../pages/Home/Contact/Contact";
+import Contact from '../pages/Contact/Contact';
+import History from "../pages/History/History";
 function MyRoutes(props) {
   return (
     <div>
@@ -12,6 +13,7 @@ function MyRoutes(props) {
           <Routes>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/contact" element={<Contact></Contact>}></Route>
+            <Route path="/history" element={<History></History>}></Route>
           </Routes>
         </Base>
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Select, Option } from "@material-tailwind/react";
 import { useCountries } from "use-react-countries";
-import { states } from "../../../data/States";
+import { states } from "../../data/States";
 function ContactForm(props) {
   const { countries } = useCountries();
   return (

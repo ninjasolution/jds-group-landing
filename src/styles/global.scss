@@ -80,8 +80,8 @@ body {
             opacity: 1;
         }
 
-        .slick-active li button:before {
-            background: #938068;
+        .slick-active button:before {
+            color: #938068;
         }
 
     }
@@ -228,6 +228,9 @@ body {
         -ms-transform-origin: center center;
         transform-origin: center center;
         transition: all 1s cubic-bezier(.37, .03, 0, 1)
+    }
+    &.arrow-rotate:after{
+        transform: translate(-50%, -6px) rotate(180deg);
     }
 }
 

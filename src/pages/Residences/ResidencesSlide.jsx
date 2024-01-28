@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import SlideImg1 from "../../assets/images/design/111-W57th_Primary-Bedroom_030-1280x720.jpg";
 import SlideImg2 from "../../assets/images/design/22073_press_111w57th_ameneties_118-1.jpg-1280x720-1674487961.png";
 import SlideImg3 from "../../assets/images/design/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg";
-function DesignSlide(props) {
+function ResidencesSlide(props) {
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -141,4 +141,4 @@ function DesignSlide(props) {
   );
 }
 
-export default DesignSlide;
+export default ResidencesSlide;

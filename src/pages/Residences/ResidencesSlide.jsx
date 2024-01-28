@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
-import SlideImg1 from "../../assets/images/design/111-W57th_Primary-Bedroom_030-1280x720.jpg";
-import SlideImg2 from "../../assets/images/design/22073_press_111w57th_ameneties_118-1.jpg-1280x720-1674487961.png";
-import SlideImg3 from "../../assets/images/design/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg";
+import BedroomImg from '../../assets/images/residences/111-W57th_Primary-Bedroom_030-1280x720.jpg';
+import CollinMillerImg from '../../assets/images/residences/2021-08-05-ColinMiller-111W57-17S-0006-1724-v3_50-1280x720.jpg';
+import AmenetiesImg from '../../assets/images/residences/22073_press_111w57th_ameneties_118-1.jpg-1280x720-1674487961.png';
+import StagingImg from '../../assets/images/residences/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg';
+import CorcoramImg from '../../assets/images/residences/CH_Corcoran_111_W_57_Pent_75_NYC_153A-e1674488230929-1280x720-1675201916.jpg';
 function ResidencesSlide(props) {
   const sliderRef = useRef(null);
 
@@ -47,39 +49,41 @@ function ResidencesSlide(props) {
   const slideContentList = [
     {
       id: 1,
-      title: "MODERN MASTERS",
-      description: `111 West 57th Street will be composed of the original landmarked
-      Steinway Hall building designed in 1925 by Warren and Wetmore
-      and a new tower addition designed by SHoP Architects on the
-      adjacent site, with interior design by Studio Sofield. The
-      Result: A&nbsp;new&nbsp;landmark on the Manhattan skyline.`,
-      img: SlideImg1,
+      title: "GREAT HALL",
+      description: `The signature Great Hall, with ceiling heights up to 14’, is a soaring space perfect for all entertaining occasions. The floor to ceiling window wall, spanning the full width of the building from east to west, offers a perfectly centered view of Central Park.`,
+      img: AmenetiesImg,
       slide: slideAside1,
       setSlide: setSlideAside1,
     },
     {
       id: 2,
-      title: (
-        <>
-          SHOP ARCHITECHTS: <br /> TODAY'S ARCHITECHTS
-        </>
-      ),
-      img: SlideImg2,
-      description: `SHoP Architects harness their interdisciplinary expertise to create architecture that makes our cities more vibrant, beautiful, and rewarding places for all to live. From its studios in New York’s historic Woolworth Building, the critically-acclaimed firm has a staff of 180 talented people and projects spanning four continents. At the heart of SHoP’s work is a respect for the expressive potential of traditional architectural materials, and a pioneering technological capability that transforms them into inspiring statements. At 111 West 57th Street, SHoP’s design evokes the qualities of form and craft for which the finest Manhattan skyscrapers have always been celebrated. 111 will be at once unique on the skyline and impossible to imagine rising anywhere else.`,
+      title: 'Master Bedroom',
+      img: BedroomImg,
+      description: `Master bedrooms feature floor to ceiling windows with bronze mullions and expansive, perfectly centered views of the Manhattan skyline or Central Park.`,
       slide: slideAside2,
       setSlide: setSlideAside2,
     },
     {
-      id: 2,
-      title: (
-        <>
-          Studio Sofield:
-          <br />
-          Today's Interior Designer
-        </>
-      ),
-      img: SlideImg3,
-      description: `SHoP Architects harness their interdisciplinary expertise to create architecture that makes our cities more vibrant, beautiful, and rewarding places for all to live. From its studios in New York’s historic Woolworth Building, the critically-acclaimed firm has a staff of 180 talented people and projects spanning four continents. At the heart of SHoP’s work is a respect for the expressive potential of traditional architectural materials, and a pioneering technological capability that transforms them into inspiring statements. At 111 West 57th Street, SHoP’s design evokes the qualities of form and craft for which the finest Manhattan skyscrapers have always been celebrated. 111 will be at once unique on the skyline and impossible to imagine rising anywhere else.`,
+      id: 3,
+      title: 'Kitchens',
+      img: StagingImg,
+      description: `Custom kitchens designed by Studio Sofield.`,
+      slide: slideAside3,
+      setSlide: setSlideAside3,
+    },
+    {
+      id: 4,
+      title: 'Master Bath',
+      img: CorcoramImg,
+      description: `Master baths feature walls and floors finished in veined white onyx, a custom antique polished free standing tub by William Holland, and custom Studio Sofield designed bronze fixtures cast by P.E. Guerin.`,
+      slide: slideAside3,
+      setSlide: setSlideAside3,
+    },
+    {
+      id: 5,
+      title: <>Second Master Bath <em>(in select residences)</em></>,
+      img: CollinMillerImg,
+      description: `Second master baths are detailed with gray onyx showers, vanity and floors with custom blackened steel and custom sconces P.E. Guerin fixtures designed by Studio Sofield.`,
       slide: slideAside3,
       setSlide: setSlideAside3,
     },
@@ -93,7 +97,7 @@ function ResidencesSlide(props) {
               <div
                 className={`${
                   value.slide ? "w-[420px] " : "w-[50px] short_slide "
-                } transition-all duration-700 h-full bg-primary text-white   relative
+                } transition-all duration-700 h-full bg-[#343534] text-white   relative
           `}
               >
                 <div

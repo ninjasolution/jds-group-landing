@@ -229,9 +229,32 @@ body {
         transform-origin: center center;
         transition: all 1s cubic-bezier(.37, .03, 0, 1)
     }
-    &.arrow-rotate:after{
+
+    &.arrow-rotate:after {
         transform: translate(-50%, -6px) rotate(180deg);
     }
+}
+
+
+
+
+.custom_scrollbar::-webkit-scrollbar {
+    width: 3px;
+    /* width of the entire scrollbar */
+}
+
+.custom_scrollbar::-webkit-scrollbar-track {
+    background: #292929;
+    /* color of the tracking area */
+}
+
+.custom_scrollbar::-webkit-scrollbar-thumb {
+    background-color: #8B7359;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    // border: 3px solid orange;
+    /* creates padding around scroll thumb */
 }
 
 // =====================global classes ===================End

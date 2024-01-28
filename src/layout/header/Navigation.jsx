@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { NavbarList } from "../../data/NavbarList";
+import { Link } from "react-router-dom";
 function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
   const navigationRef = useRef(null);
 
@@ -64,9 +65,9 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <a href="http://paulm160.sg-host.com/legal" className="ajaxified">
+              <Link onClick={() => setToggle(false)} to={"/legal"} className="">
                 Legal
-              </a>
+              </Link>
             </li>
             <li
               id="menu-item-1261"
@@ -74,9 +75,13 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <a href=" " className="ajaxified">
+              <Link
+                onClick={() => setToggle(false)}
+                to={"/contact"}
+                className=""
+              >
                 Contact
-              </a>
+              </Link>
             </li>
             <li
               id="menu-item-1262"
@@ -84,9 +89,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <a href="http://paulm160.sg-host.com/press" className="ajaxified">
-                Press
-              </a>
+              <Link to="/press">Press</Link>
             </li>
           </ul>
         </div>{" "}

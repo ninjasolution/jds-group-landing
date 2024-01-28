@@ -48,9 +48,9 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                   toggle ? "show_list" : ""
                 }`}
               >
-                <a href={value.link} className="ajaxified">
+                <Link to={value.link} onClick={()=> setToggle(false)} className="ajaxified">
                   {value.name}
-                </a>
+                </Link>
               </li>
             );
           })}
@@ -89,7 +89,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <Link to="/press">Press</Link>
+              <Link to="/press" onClick={() => setToggle(false)}>Press</Link>
             </li>
           </ul>
         </div>{" "}

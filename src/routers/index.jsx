@@ -14,6 +14,14 @@ import Neighborhood from "../pages/Neighborhood/Neighborhood";
 import Team from "../pages/Team/Team";
 import Legal from "../pages/Legal/Legal";
 import Press from "../pages/Press/Press";
+import History1853 from "../pages/History/History1853";
+import History1887 from "../pages/History/History1887";
+import History1916 from "../pages/History/History1916";
+import History1925 from "../pages/History/History1925";
+import History19282014 from "../pages/History/History19282014";
+import History2001 from "../pages/History/History2001";
+import History2013 from "../pages/History/History2013";
+import History2019 from "../pages/History/History2019";
 // ==========================Pages ===============================End
 
 function MyRoutes(props) {
@@ -34,6 +42,15 @@ function MyRoutes(props) {
             <Route path="/team" element={<Team></Team>}></Route>
             <Route path="/legal" element={<Legal></Legal>}></Route>
             <Route path="/press" element={<Press></Press>}></Route>
+
+            <Route path="/history/1853" element={<History1853></History1853>}></Route>
+            <Route path="/history/1887" element={<History1887></History1887>}></Route>
+            <Route path="/history/1916" element={<History1916></History1916>}></Route>
+            <Route path="/history/1925" element={<History1925></History1925>}></Route>
+            <Route path="/history/19282014" element={<History19282014></History19282014>}></Route>
+            <Route path="/history/2001" element={<History2001></History2001>}></Route>
+            <Route path="/history/2013" element={<History2013></History2013>}></Route>
+            <Route path="/history/2019" element={<History2019></History2019>}></Route>
           </Routes>
         </Base>
       </BrowserRouter>

@@ -9,6 +9,9 @@ import Design from "../pages/Design/Design";
 import Residences from "../pages/Residences/Residences";
 import Views from "../pages/Views/Views";
 import Availability from "../pages/Availability/Availability";
+import Amenities from "../pages/Amenities/Amenities";
+import Neighborhood from "../pages/Neighborhood/Neighborhood";
+import Team from "../pages/Team/Team";
 // ==========================Pages ===============================End
 
 function MyRoutes(props) {
@@ -23,7 +26,9 @@ function MyRoutes(props) {
             <Route path="/design" element={<Design></Design>}></Route>
             <Route path="/residences" element={<Residences></Residences>}></Route>
             <Route path="/views" element={<Views></Views>}></Route>
-            <Route path="/availability" element={<Availability></Availability>}></Route>
+            <Route path="/amenities" element={<Amenities></Amenities>}></Route>
+            <Route path="/neighborhood" element={<Neighborhood></Neighborhood>}></Route>
+            <Route path="/team" element={<Team></Team>}></Route>
           </Routes>
         </Base>
       </BrowserRouter>

@@ -1,7 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function ViewsInfo(props) {
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHideInfoScreen(true);
+      console.log("scroll");
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once after component mount
+
   return (
     <div
       className={`info_screen bg-primary z-10 absolute top-[40px] bottom-[40px] start-[40px] end-[40px]  ${

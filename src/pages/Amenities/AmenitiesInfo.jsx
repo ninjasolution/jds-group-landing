@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from "react";
 
-function ResidencesInfo(props) {
+function AmenitiesInfo(props) {
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
-
+ 
   useEffect(() => {
     const handleScroll = () => {
       setHideInfoScreen(true);
-      console.log("scroll");
+      console.log('scroll')
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("wheel", handleScroll);
+    window.addEventListener('wheel', handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener('wheel', handleScroll);
     };
   }, []); // Empty dependency array ensures this effect runs only once after component mount
 
   return (
     <div
-      className={`info_screen bg-[#7A766C] z-10 absolute top-[40px] bottom-[40px] start-[40px] end-[40px]  ${
+      className={`info_screen bg-[#777776] z-10 absolute top-[40px] bottom-[40px] start-[40px] end-[40px]  ${
         hideInfoScreen ? "hide_screen" : ""
       }`}
     >
-      <div className="bg-[#7A766C] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
+      <div className="bg-[#777776] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          RESIDENCES
+          AMENITIES & SERVICES
         </h2>
         <p className="max-w-[600px] text-[26px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          With graceful central entrance galleries featuring horizon-deep views
-          north and south, and monumental ceiling heights, each full-floor tower
-          residence combines a grand scale with comfortable, private settings
-          for contemporary living.
+          Designed by Studio Sofield, the amenities and services at 111 West
+          57th Street will feature the utmost in comfort, convenience, and
+          security.
         </p>
         <div className="text-center mt-5">
           <button
@@ -44,4 +43,4 @@ function ResidencesInfo(props) {
   );
 }
 
-export default ResidencesInfo;
+export default AmenitiesInfo;

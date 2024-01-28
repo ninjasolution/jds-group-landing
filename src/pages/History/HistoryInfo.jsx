@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function HistoryInfo(props) {
+  useEffect(() => {
+    const handleScroll = () => {
+      setHideInfoScreen(true);
+      console.log("scroll");
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("wheel", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once after component mount
+
   return (
     <div className="container_wrapper">
       <div className="bg-[#292929] h-[75vh] w-full relative p-5">

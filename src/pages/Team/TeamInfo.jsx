@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function ResidencesInfo(props) {
+function TeamInfo(props) {
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
 
   useEffect(() => {
@@ -19,19 +19,21 @@ function ResidencesInfo(props) {
 
   return (
     <div
-      className={`info_screen bg-[#7A766C] z-10 absolute top-[40px] bottom-[40px] start-[40px] end-[40px]  ${
+      className={`info_screen bg-[#7C7262] z-10 absolute top-[40px] bottom-[40px] start-[40px] end-[40px]  ${
         hideInfoScreen ? "hide_screen" : ""
       }`}
     >
-      <div className="bg-[#7A766C] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
+      <div className="bg-[#7C7262] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          RESIDENCES
+          TEAM
         </h2>
         <p className="max-w-[600px] text-[26px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          With graceful central entrance galleries featuring horizon-deep views
-          north and south, and monumental ceiling heights, each full-floor tower
-          residence combines a grand scale with comfortable, private settings
-          for contemporary living.
+          “You’re going to sense the spirit of making and building. You’re going
+          to sense that there are very much human hands involved in how this
+          building begins to manifest itself.”
+          <br />
+          <br />
+          —Chris Sharples, SHoP Architects
         </p>
         <div className="text-center mt-5">
           <button
@@ -44,4 +46,4 @@ function ResidencesInfo(props) {
   );
 }
 
-export default ResidencesInfo;
+export default TeamInfo;

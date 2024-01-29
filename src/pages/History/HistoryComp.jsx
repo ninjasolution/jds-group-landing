@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import LightboxScreen from "../../components/LightboxScreen";
 function HistoryComp({
   title,
   subtitle,
@@ -74,6 +75,8 @@ function HistoryComp({
   //       window.removeEventListener("wheel", handleWheel);
   //     };
   //   }, []); // Empty dependency array ensures that this effect runs only once
+  const [lightboxShow, setLightboxShow] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState("");
 
   return (
     <div>
@@ -162,7 +165,10 @@ function HistoryComp({
                     {value.prev_year && (
                       <div className="absolute start-0 bottom-0 p-3">
                         <Link
-                          to={`/history/${String(value.next_year).replace(/[-]g/, '')}`}
+                          to={`/history/${String(value.next_year).replace(
+                            /[-]g/,
+                            ""
+                          )}`}
                           className="text-primary flex items-center"
                         >
                           <svg
@@ -186,7 +192,7 @@ function HistoryComp({
                     {value.next_year && (
                       <div className="absolute end-0 bottom-0 p-3 px-4">
                         <Link
-                          to={`/history/${value.next_year.replaceAll('-','')}`}
+                          to={`/history/${value.next_year.replaceAll("-", "")}`}
                           className="text-primary flex items-center "
                         >
                           {value.next_year}
@@ -204,7 +210,6 @@ function HistoryComp({
                           >
                             <path d="M0 0L3 3L0 6" />
                           </svg>
-
                         </Link>
                       </div>
                     )}
@@ -215,11 +220,43 @@ function HistoryComp({
                     style={{
                       background: `url(${value.img}) center/cover no-repeat`,
                     }}
-                  ></div>
+                  >
+                    <button
+                      onClick={() => {
+                        setLightboxShow(true);
+                        setLightboxSrc(value.img);
+                      }}
+                      className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+                    >
+                      <svg
+                        width={10}
+                        height={10}
+                        viewBox="0 0 10 10"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="#FFF"
+                        className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
+                      >
+                        <path
+                          d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                          fillRule="evenodd"
+                        />
+                        <path
+                          d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                          fillRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               );
             })}
           </Slider>
+
+          <LightboxScreen
+            isShow={lightboxShow}
+            src={lightboxSrc}
+            setLightboxShow={setLightboxShow}
+          ></LightboxScreen>
         </div>
       </div>
     </div>

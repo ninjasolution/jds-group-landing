@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import ViewImg from "../../assets/images/views/a-new-york-penthouse-1000-feet-above-street-level-fetches-50-million-plus-1680x845.jpg";
+import LightboxScreen from "../../components/LightboxScreen";
 function ViewsSlide(props) {
   const sliderRef = useRef(null);
 
@@ -67,6 +68,9 @@ function ViewsSlide(props) {
       setSlide: setSlideAside2,
     },
   ];
+  const [lightboxShow, setLightboxShow] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState("");
+
   return (
     <div className="w-full h-full full_screen_slider">
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
@@ -114,11 +118,37 @@ function ViewsSlide(props) {
 
               {value.title ? (
                 <div
-                  className="content_screen w-full h-full"
+                  className="content_screen w-full h-full relative"
                   style={{
                     background: `url(${value.img}) center/cover no-repeat`,
                   }}
-                ></div>
+                >
+                  <button
+                    onClick={() => {
+                      setLightboxShow(true);
+                      setLightboxSrc(value.img);
+                    }}
+                    className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+                  >
+                    <svg
+                      width={10}
+                      height={10}
+                      viewBox="0 0 10 10"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#FFF"
+                      className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
+                    >
+                      <path
+                        d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                        fillRule="evenodd"
+                      />
+                      <path
+                        d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                        fillRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
               ) : (
                 <div className="content_screen w-full h-full">
                   <iframe
@@ -133,6 +163,11 @@ function ViewsSlide(props) {
           );
         })}
       </Slider>
+      <LightboxScreen
+        isShow={lightboxShow}
+        src={lightboxSrc}
+        setLightboxShow={setLightboxShow}
+      ></LightboxScreen>
     </div>
   );
 }

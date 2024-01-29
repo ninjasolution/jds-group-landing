@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
-import BedroomImg from '../../assets/images/residences/111-W57th_Primary-Bedroom_030-1280x720.jpg';
-import CollinMillerImg from '../../assets/images/residences/2021-08-05-ColinMiller-111W57-17S-0006-1724-v3_50-1280x720.jpg';
-import AmenetiesImg from '../../assets/images/residences/22073_press_111w57th_ameneties_118-1.jpg-1280x720-1674487961.png';
-import StagingImg from '../../assets/images/residences/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg';
-import CorcoramImg from '../../assets/images/residences/CH_Corcoran_111_W_57_Pent_75_NYC_153A-e1674488230929-1280x720-1675201916.jpg';
+import BedroomImg from "../../assets/images/residences/111-W57th_Primary-Bedroom_030-1280x720.jpg";
+import CollinMillerImg from "../../assets/images/residences/2021-08-05-ColinMiller-111W57-17S-0006-1724-v3_50-1280x720.jpg";
+import AmenetiesImg from "../../assets/images/residences/22073_press_111w57th_ameneties_118-1.jpg-1280x720-1674487961.png";
+import StagingImg from "../../assets/images/residences/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg";
+import CorcoramImg from "../../assets/images/residences/CH_Corcoran_111_W_57_Pent_75_NYC_153A-e1674488230929-1280x720-1675201916.jpg";
+import LightboxScreen from "../../components/LightboxScreen";
 function ResidencesSlide(props) {
   const sliderRef = useRef(null);
 
@@ -57,7 +58,7 @@ function ResidencesSlide(props) {
     },
     {
       id: 2,
-      title: 'Master Bedroom',
+      title: "Master Bedroom",
       img: BedroomImg,
       description: `Master bedrooms feature floor to ceiling windows with bronze mullions and expansive, perfectly centered views of the Manhattan skyline or Central Park.`,
       slide: slideAside2,
@@ -65,7 +66,7 @@ function ResidencesSlide(props) {
     },
     {
       id: 3,
-      title: 'Kitchens',
+      title: "Kitchens",
       img: StagingImg,
       description: `Custom kitchens designed by Studio Sofield.`,
       slide: slideAside3,
@@ -73,7 +74,7 @@ function ResidencesSlide(props) {
     },
     {
       id: 4,
-      title: 'Master Bath',
+      title: "Master Bath",
       img: CorcoramImg,
       description: `Master baths feature walls and floors finished in veined white onyx, a custom antique polished free standing tub by William Holland, and custom Studio Sofield designed bronze fixtures cast by P.E. Guerin.`,
       slide: slideAside3,
@@ -81,13 +82,20 @@ function ResidencesSlide(props) {
     },
     {
       id: 5,
-      title: <>Second Master Bath <em>(in select residences)</em></>,
+      title: (
+        <>
+          Second Master Bath <em>(in select residences)</em>
+        </>
+      ),
       img: CollinMillerImg,
       description: `Second master baths are detailed with gray onyx showers, vanity and floors with custom blackened steel and custom sconces P.E. Guerin fixtures designed by Studio Sofield.`,
       slide: slideAside3,
       setSlide: setSlideAside3,
     },
   ];
+
+  const [lightboxShow, setLightboxShow] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState("");
   return (
     <div className="w-full h-full full_screen_slider">
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
@@ -132,15 +140,46 @@ function ResidencesSlide(props) {
               </div>
 
               <div
-                className="content_screen w-full h-full"
+                className="content_screen w-full h-full relative"
                 style={{
                   background: `url(${value.img}) center/cover no-repeat`,
                 }}
-              ></div>
+              >
+                <button
+                  onClick={() => {
+                    setLightboxShow(true);
+                    setLightboxSrc(value.img);
+                  }}
+                  className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+                >
+                  <svg
+                    width={10}
+                    height={10}
+                    viewBox="0 0 10 10"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#FFF"
+                    className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
+                  >
+                    <path
+                      d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                      fillRule="evenodd"
+                    />
+                    <path
+                      d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           );
         })}
       </Slider>
+      <LightboxScreen
+        isShow={lightboxShow}
+        src={lightboxSrc}
+        setLightboxShow={setLightboxShow}
+      ></LightboxScreen>
     </div>
   );
 }

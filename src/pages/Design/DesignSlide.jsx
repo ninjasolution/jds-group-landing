@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import SlideImg1 from "../../assets/images/design/111-W57th_Primary-Bedroom_030-1280x720.jpg";
 import SlideImg2 from "../../assets/images/design/22073_press_111w57th_ameneties_118-1.jpg-1280x720-1674487961.png";
 import SlideImg3 from "../../assets/images/design/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg";
+import LightboxScreen from "../../components/LightboxScreen";
 function DesignSlide(props) {
   const sliderRef = useRef(null);
 
@@ -84,6 +85,10 @@ function DesignSlide(props) {
       setSlide: setSlideAside3,
     },
   ];
+
+  const [lightboxShow, setLightboxShow] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState("");
+
   return (
     <div className="w-full h-full full_screen_slider">
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
@@ -128,15 +133,47 @@ function DesignSlide(props) {
               </div>
 
               <div
-                className="content_screen w-full h-full"
+                className="content_screen w-full h-full relative"
                 style={{
                   background: `url(${value.img}) center/cover no-repeat`,
                 }}
-              ></div>
+              >
+                <button
+                  onClick={() => {
+                    setLightboxShow(true);
+                    setLightboxSrc(value.img);
+                  }}
+                  className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+                >
+                  <svg
+                    width={10}
+                    height={10}
+                    viewBox="0 0 10 10"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#FFF"
+                    className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
+                  >
+                    <path
+                      d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                      fillRule="evenodd"
+                    />
+                    <path
+                      d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           );
         })}
       </Slider>
+
+      <LightboxScreen
+        isShow={lightboxShow}
+        src={lightboxSrc}
+        setLightboxShow={setLightboxShow}
+      ></LightboxScreen>
     </div>
   );
 }

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import SliderImg1 from "../../assets/images/home/1.jpeg";
 import SliderImg2 from "../../assets/images/home/2.jpeg";
 import SliderImg3 from "../../assets/images/home/3.jpeg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import LightboxScreen from "../../components/LightboxScreen";
 function HeroSlider(props) {
   const settings = {
     dots: false,
@@ -18,6 +18,8 @@ function HeroSlider(props) {
     autoplaySpeed: 5000,
     cssEase: "linear",
   };
+  const [lightboxShow, setLightboxShow] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState("");
   return (
     <div>
       <div className="container_wrapper">
@@ -40,15 +42,25 @@ function HeroSlider(props) {
                 Via Private Lifts and 24/7 Security
               </p>
             </div>
-            <button className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50">
+            <button
+              onClick={() => {
+                setLightboxShow(true);
+                setLightboxSrc(SliderImg1);
+              }}
+              className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+            >
               <svg
                 width={10}
                 height={10}
                 viewBox="0 0 10 10"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#FFF"
-                className="group-hover:fill-current group-hover:text-[#7c7262]"
+                className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
               >
+                <path
+                  d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                  fillRule="evenodd"
+                />
                 <path
                   d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
                   fillRule="evenodd"
@@ -78,15 +90,25 @@ function HeroSlider(props) {
                 Via Private Lifts and 24/7 Security
               </p>
             </div>
-            <button className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50">
+            <button
+              onClick={() => {
+                setLightboxShow(true);
+                setLightboxSrc(SliderImg2);
+              }}
+              className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+            >
               <svg
                 width={10}
                 height={10}
                 viewBox="0 0 10 10"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#FFF"
-                className="group-hover:fill-current group-hover:text-[#7c7262]"
+                className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
               >
+                <path
+                  d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                  fillRule="evenodd"
+                />
                 <path
                   d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
                   fillRule="evenodd"
@@ -117,15 +139,25 @@ function HeroSlider(props) {
                 Via Private Lifts and 24/7 Security
               </p>
             </div>
-            <button className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50">
+            <button
+              onClick={() => {
+                setLightboxShow(true);
+                setLightboxSrc(SliderImg3);
+              }}
+              className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+            >
               <svg
                 width={10}
                 height={10}
                 viewBox="0 0 10 10"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#FFF"
-                className="group-hover:fill-current group-hover:text-[#7c7262]"
+                className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
               >
+                <path
+                  d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                  fillRule="evenodd"
+                />
                 <path
                   d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
                   fillRule="evenodd"
@@ -138,6 +170,12 @@ function HeroSlider(props) {
             />
           </div>
         </Slider>
+
+        <LightboxScreen
+          isShow={lightboxShow}
+          src={lightboxSrc}
+          setLightboxShow={setLightboxShow}
+        ></LightboxScreen>
       </div>
     </div>
   );

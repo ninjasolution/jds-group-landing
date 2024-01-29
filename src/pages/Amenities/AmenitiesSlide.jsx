@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
-import PrivatePorteImg from '../../assets/images/amenities/amenities-3-e1671634988707-1280x720.jpg'
-import ArrivalImg from '../../assets/images/amenities/amenities-4-1280x720-1675200088.jpg'
-import PoolImg from '../../assets/images/amenities/22073_press_111w57_ameneties0003-1-scaled-1280x720-1675200288.jpg'
-import TerraceImg from '../../assets/images/amenities/111-terrace-1280x720.jpg'
-
+import PrivatePorteImg from "../../assets/images/amenities/amenities-3-e1671634988707-1280x720.jpg";
+import ArrivalImg from "../../assets/images/amenities/amenities-4-1280x720-1675200088.jpg";
+import PoolImg from "../../assets/images/amenities/22073_press_111w57_ameneties0003-1-scaled-1280x720-1675200288.jpg";
+import TerraceImg from "../../assets/images/amenities/111-terrace-1280x720.jpg";
+import LightboxScreen from "../../components/LightboxScreen";
 function AmenitiesSlide(props) {
   const sliderRef = useRef(null);
 
@@ -57,7 +57,7 @@ function AmenitiesSlide(props) {
     },
     {
       id: 2,
-      title: 'Arrival',
+      title: "Arrival",
       img: ArrivalImg,
       description: `111 West 57th Street&nbsp;establishes a lifestyle of luxury – with a gracious and secure entrance experience featuring a rare, private and sheltered porte cochère with custom urn chandeliers, rusticated gray granite pavers, and intricate grill work doors inspired by the bronze filigree on the building’s exterior.`,
       slide: slideAside2,
@@ -65,7 +65,7 @@ function AmenitiesSlide(props) {
     },
     {
       id: 3,
-      title: 'The Pool',
+      title: "The Pool",
       img: PoolImg,
       description: `A beautiful and serene 82’ lap pool features double-height vaulted ceilings, alcove cabanas and lounge seating throughout, and custom ornate wall sconces.`,
       slide: slideAside3,
@@ -73,7 +73,7 @@ function AmenitiesSlide(props) {
     },
     {
       id: 4,
-      title: 'The Pool',
+      title: "The Pool",
       img: PoolImg,
       description: `A beautiful and serene 82’ lap pool features double-height vaulted ceilings, alcove cabanas and lounge seating throughout, and custom ornate wall sconces.`,
       slide: slideAside4,
@@ -81,13 +81,17 @@ function AmenitiesSlide(props) {
     },
     {
       id: 5,
-      title: 'Terrace',
+      title: "Terrace",
       img: TerraceImg,
       description: `The expansive outdoor terrace and lounge offers residents a private space for relaxing, al-fresco dining, or entertaining guests.`,
       slide: slideAside5,
       setSlide: setSlideAside5,
     },
   ];
+
+  const [lightboxShow, setLightboxShow] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState("");
+
   return (
     <div className="w-full h-full full_screen_slider">
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
@@ -132,15 +136,47 @@ function AmenitiesSlide(props) {
               </div>
 
               <div
-                className="content_screen w-full h-full"
+                className="content_screen w-full h-full relative"
                 style={{
                   background: `url(${value.img}) center/cover no-repeat`,
                 }}
-              ></div>
+              >
+                <button
+                  onClick={() => {
+                    setLightboxShow(true);
+                    setLightboxSrc(value.img);
+                  }}
+                  className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+                >
+                  <svg
+                    width={10}
+                    height={10}
+                    viewBox="0 0 10 10"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#FFF"
+                    className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
+                  >
+                    <path
+                      d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                      fillRule="evenodd"
+                    />
+                    <path
+                      d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           );
         })}
       </Slider>
+
+      <LightboxScreen
+        isShow={lightboxShow}
+        src={lightboxSrc}
+        setLightboxShow={setLightboxShow}
+      ></LightboxScreen>
     </div>
   );
 }

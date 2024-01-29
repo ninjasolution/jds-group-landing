@@ -10,6 +10,7 @@ function History1853(props) {
       img={Img1853}
       prev_year={``}
       next_year={`1887`}
+      next_year_link={`history/1887`}
     ></HistoryComp>
   );
 }

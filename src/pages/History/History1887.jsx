@@ -10,7 +10,9 @@ function History1887(props) {
       description={`The celebrated firm Warren & Wetmore is founded in 1887. The firm designs many of Manhattan's most refined residential and cultural buildings, from 927 Fifth Avenue to Grand Central Station, and go on to design Steinway Hall in 1923. Warren & Wetmore's artistic approach culminates in classical proportions, carefully carved stonework, and a picturesque roofline.`}
       img={Img1887}
       prev_year={`1853`}
+      prev_year_link={`history/1853`}
       next_year={`1916`}
+      next_year_link={`history/1916`}
     ></HistoryComp>
   );
 }

@@ -137,7 +137,7 @@ function TeamContent(props) {
     },
   ];
   return (
-    <div className=" h-full overflow-auto custom_scrollbar ">
+    <div className=" h-full overflow-auto custom_scrollbar px-4">
       <ul className="max-w-[400px]  mx-auto ">
         {team_content_list.map((value, index) => {
           return (

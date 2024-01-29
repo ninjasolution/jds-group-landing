@@ -9,6 +9,8 @@ function HistoryComp({
   img,
   prev_year,
   next_year,
+  prev_year_link,
+  next_year_link
 }) {
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
 
@@ -39,6 +41,8 @@ function HistoryComp({
       setSlide: setSlideAside1,
       prev_year: prev_year,
       next_year: next_year,
+      prev_year_link: prev_year_link,
+      next_year_link: next_year_link,
     },
   ];
 
@@ -166,10 +170,7 @@ function HistoryComp({
                     {value.prev_year && (
                       <div className="absolute start-0 bottom-0 p-3">
                         <Link
-                          to={`/history/${String(value.next_year).replace(
-                            /[-]g/,
-                            ""
-                          )}`}
+                          to={`/${value.prev_year_link}`}
                           className="text-primary flex items-center"
                         >
                           <svg
@@ -193,7 +194,7 @@ function HistoryComp({
                     {value.next_year && (
                       <div className="absolute end-0 bottom-0 p-3 px-4">
                         <Link
-                          to={`/history/${value.next_year.replaceAll("-", "")}`}
+                          to={`/${value.next_year_link}`}
                           className="text-primary flex items-center "
                         >
                           {value.next_year}

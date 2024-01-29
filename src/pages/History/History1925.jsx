@@ -9,7 +9,9 @@ function History1925(props) {
       description={`The official opening night takes place on October 27, 1925 with a performance by Willem Mengelberg and 35 musicians from the New York Philharmonic before 300 invited guests of the New York society. The entire performance is broadcast over the radio. As the flagship home of the premier maker of pianos, Steinway & Sons, Steinway Hall includes acoustically ideal rooms for musical performances by such virtuosos as Sergei Rachmaninoff and Vladimir Horowitz, as well as spaces for making and tuning instruments.`}
       img={Img1925}
       prev_year={`1916`}
+      prev_year_link={`history/1916`}
       next_year={`1928–2014`}
+      next_year_link={`history/19282014`}
     ></HistoryComp>
   );
 }

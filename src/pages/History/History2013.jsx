@@ -10,7 +10,9 @@ function History2013(props) {
       description={`In 2013 the next great chapter in Steinway Hall’s famous history is written. JDS Development Group and Property Markets Group acquire the landmark building and adjacent lot to build a one-of-a-kind, bold yet slender skyscraper in custom-cast terra cotta, bronze, and glass, designed by SHoP architects with interiors by Studio Sofield.`}
       img={Img2013}
       prev_year={`2001-2013`}
+      prev_year_link={`history/2001`}
       next_year={`Today`}
+      next_year_link={`history/2019`}
     ></HistoryComp>
   );
 }

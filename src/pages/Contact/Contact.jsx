@@ -5,7 +5,7 @@ function Contact(props) {
   return (
     <div>
       <div className="container_wrapper">
-        <div className="bg-[#777776] min-h-[75vh] w-full relative">
+        <div className="bg-[#777776] min-h-[75vh] w-full relative flex flex-col-reverse xl:block">
           <ContactForm></ContactForm>
           <ContactAddress></ContactAddress>
         </div>

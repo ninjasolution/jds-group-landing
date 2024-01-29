@@ -4,7 +4,7 @@ import ResidencesSlide from "./ResidencesSlide";
 function Residences(props) {
   return (
     <div>
-      <div className="container_wrapper h-[75vh] relative bg-[#EFEFEF]">
+      <div className="container_wrapper h-[90vh] lg:h-[75vh] relative bg-[#EFEFEF]">
         <ResidencesInfo></ResidencesInfo>
         <ResidencesSlide></ResidencesSlide>
       </div>

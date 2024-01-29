@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'perfetto';
-    src: url('/fonts/perfetto-regular-webfont2d79.woff') format('truetype');
+    font-family: 'financier_font';
+    src: url('/fonts/financier_font.woff') format('truetype');
     /* Add other font formats if necessary */
 }
 
 body {
-    font-family: 'perfetto', sans-serif;
+    font-family: 'financier_font', sans-serif;
 }
 
 ::selection {
@@ -134,7 +134,7 @@ body {
 
 @media screen and (max-width: 768px) {
     .container_wrapper {
-        width: calc(100% - 40px);
+        width: calc(100% - 0px);
     }
 
     #header {

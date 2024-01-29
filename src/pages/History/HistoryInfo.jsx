@@ -19,7 +19,7 @@ function HistoryInfo(props) {
 
   return (
     <div
-      className={`info_screen bg-[#343534] z-10 absolute top-[40px] bottom-[40px] start-[40px] end-[40px]  ${
+      className={`info_screen bg-[#343534] z-10 absolute top-[0px] bottom-[0px] start-[0px] end-[0px] sm:top-[40px] sm:bottom-[40px] sm:start-[40px] sm:end-[40px] md:top-[20px] md:bottom-[20px] md:start-[20px] md:end-[20px]  xl:top-[40px] xl:bottom-[40px] xl:start-[40px] xl:end-[40px]  ${
         hideInfoScreen ? "hide_screen" : ""
       }`}
     >
@@ -27,7 +27,7 @@ function HistoryInfo(props) {
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
           HISTORY
         </h2>
-        <p className="max-w-[600px] text-[26px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
+        <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
           The history of 111 West 57th Street is a piece of music in two great
           movements, bringing together the best of New York City’s prewar Golden
           Age of architectural design, with the best of today’s contemporary

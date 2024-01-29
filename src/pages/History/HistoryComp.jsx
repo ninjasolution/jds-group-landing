@@ -14,7 +14,7 @@ function HistoryComp({
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     vertical: true,
@@ -88,20 +88,21 @@ function HistoryComp({
             {slideContentList.map((value, index) => {
               return (
                 <div
-                  className="h-full w-full !flex flex-nowrapp relative"
+                  className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row relative"
                   key={value.id}
                 >
                   <div
-                    className={`${
-                      value.slide ? "w-[420px] " : "w-[50px] short_slide "
+                    className={` ${
+                      value.slide
+                        ? "w-full lg:w-[420px] "
+                        : "w-[50px] short_slide "
                     } transition-all duration-700 h-full bg-white text-primary   relative
           `}
                   >
                     <div
-                      className={`absolute top-[50%]  ${
+                      className={` lg:absolute top-[50%] lg:translate-y-[-50%]  ${
                         value.slide ? "p-[50px]" : ""
                       } w-full'}`}
-                      style={{ transform: "translateY(-50%)" }}
                     >
                       <h3
                         className={`uppercase mb-3 text-primary text-center transition-all text-[42px] duration-100 ${

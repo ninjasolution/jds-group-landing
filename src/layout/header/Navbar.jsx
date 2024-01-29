@@ -62,13 +62,14 @@ function HeaderNavbar(props) {
   ];
 
   return (
-    <div className="flex justify-between items-end w-100">
-      <img src={PymbleRoad} alt="img" />
-      <a href="#" className="inline-block h-[52px]">
+    <div className="flex justify-between items-end w-100 px-2 lg:px-0">
+      <img className="hidden lg:block" src={PymbleRoad} alt="img" />
+
+      <Link to="/" className="inline-block h-[35px] sm:h-[40px] md:h-[52px]">
         <img src={TeleLogo} className="max-h-[95%]" alt="img" />
-      </a>
+      </Link>
       <ul className="flex items-center">
-        <li className="me-6">
+        <li className="me-6 hidden md:block">
           <Menu
             open={isMenuOpen}
             handler={setIsMenuOpen}
@@ -109,7 +110,7 @@ function HeaderNavbar(props) {
             </MenuList>
           </Menu>
         </li>
-        <li className="me-6">
+        <li className="me-6 hidden md:block">
           <Link
             to={"/contact"}
             className="text_primary text-sm hover:underline"
@@ -117,11 +118,11 @@ function HeaderNavbar(props) {
             CONTACT
           </Link>
         </li>
-        <li className="text_primary min-w-[25px]">
+        <li className="text_primary min-w-[25px] text-end">
           <div
             ref={hamburger_btn_ref}
             onClick={() => setToggle(!toggle)}
-            className={`hamburger hamburger--collapse ${
+            className={`hamburger whitespace-nowrap hamburger--collapse ${
               toggle ? "is-active" : ""
             }`}
           >
@@ -135,8 +136,14 @@ function HeaderNavbar(props) {
               {toggle ? "CLOSE" : "MENU"}
             </a>
           </div>
+          <img
+            className="w-[160px] sm:w-[175px] md:hidden"
+            src={PymbleRoad}
+            alt="img"
+          />
         </li>
       </ul>
+
       <Navigation
         toggle={toggle}
         setToggle={setToggle}

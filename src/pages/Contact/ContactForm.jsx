@@ -5,7 +5,7 @@ import { states } from "../../data/States";
 function ContactForm(props) {
   const { countries } = useCountries();
   return (
-    <form action="" className="max-w-[600px] mx-auto p-8 text-white">
+    <form action="" className="w-full xl:max-w-[600px] mx-auto p-8 text-white">
       <h3 className="text-center text-white">REGISTER</h3>
       <p className="text-[13px] mt-5 text-center mb-2">*Required fields</p>
       <div className="input_group">

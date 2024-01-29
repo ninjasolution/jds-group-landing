@@ -114,40 +114,47 @@ function Availability(props) {
                 </h2>
               </caption>
               <thead>
-                <tr style={{borderBottom: '1px solid #d4cdc7'}}>
-                  <th className="text-[13px] py-3 text-white font-normal text-center">
-                    RESIDENCE
+                <tr style={{ borderBottom: "1px solid #d4cdc7" }}>
+                  <th className="text-[13px] p-3 text-white font-normal text-center">
+                    <span className=" whitespace-nowrap"> RESIDENCE</span>
                   </th>
-                  <th className="text-[13px] py-3 text-white font-normal text-center">
-                    BEDROOM <br /> / BATHROOM
+                  <th className="text-[13px] p-3 text-white font-normal text-center">
+                    <span className="whitespace-nowrap">BEDROOM</span>
+                    <br /> <span className="whitespace-nowrap">/ BATHROOM</span>
                   </th>
-                  <th className="text-[13px] py-3 text-white font-normal text-center">
-                    INTERIOR <br /> Sq Ft / Sq M
+                  <th className="text-[13px] p-3 text-white font-normal text-center">
+                    <span className="whitespace-nowrap">INTERIOR</span> <br />
+                    <span className="whitespace-nowrap">Sq Ft / Sq M</span>
                   </th>
-                  <th className="text-[13px] py-3 text-white font-normal text-center">
-                    EXTERIOR <br /> Sq Ft / Sq M
+                  <th className="text-[13px] p-3 text-white font-normal text-center">
+                    <span className="whitespace-nowrap">EXTERIOR</span> <br />{" "}
+                    <span className="whitespace-nowrap">Sq Ft / Sq M</span>
                   </th>
-                  <th className="text-[13px] py-3 text-white font-normal text-center">
-                    EXPOSURE
+                  <th className="text-[13px] p-3 text-white font-normal text-center">
+                    <span className="whitespace-nowrap">EXPOSURE</span>
                   </th>
-                  <th className="text-[13px] py-3 text-white font-normal text-center">
-                    PRICE
+                  <th className="text-[13px] p-3 text-white font-normal text-center">
+                    <span className="whitespace-nowrap">PRICE</span>
                   </th>
-                  <th className="text-[13px] py-3 text-white font-normal text-center">
-                    VIEW / DOWNLOAD
+                  <th className="text-[13px] p-3 text-white font-normal text-center">
+                    <span className="whitespace-nowrap">VIEW / DOWNLOAD</span>
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {table_list.map((value, index) => {
                   return (
-                    <tr key={value.id} className={index % 2 !== 0 ? 'bg-[#3A3A3A]' : ''} style={{borderBottom: '1px solid #d4cdc7'}}>
-                      <td className="text-center text-lg py-5" >
+                    <tr
+                      key={value.id}
+                      className={index % 2 !== 0 ? "bg-[#3A3A3A]" : ""}
+                      style={{ borderBottom: "1px solid #d4cdc7" }}
+                    >
+                      <td className="text-center text-lg py-5">
                         <div
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          {value.residence}
+                          <span className="whitespace-nowrap">{value.residence}</span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -155,7 +162,7 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          {value.bedroon}
+                          <span className="whitespace-nowrap">{value.bedroon}</span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -163,7 +170,7 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          {value.interior}
+                          <span className="whitespace-nowrap">{value.interior}</span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -171,7 +178,7 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          {value.exterior}
+                          <span className="whitespace-nowrap">{value.exterior}</span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -179,18 +186,22 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          {value.exposure}
+                          <span className="whitespace-nowrap">{value.exposure}</span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
                         <div
                           className=" py-[10px]"
-                          style={{ borderRight: value.view ? "1px dotted #d4cdc7" : '' }}
+                          style={{
+                            borderRight: value.view ? "1px dotted #d4cdc7" : "",
+                          }}
                         >
-                          {value.price}
+                          <span className="whitespace-nowrap">{value.price}</span>
                         </div>
                       </td>
-                      <td className="text-center text-lg py-5">{value.view}</td>
+                      <td className="text-center text-lg py-5">
+                        <span className="whitespace-nowrap">{value.view}</span>
+                      </td>
                     </tr>
                   );
                 })}

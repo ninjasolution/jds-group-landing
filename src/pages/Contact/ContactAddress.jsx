@@ -2,8 +2,8 @@ import React from "react";
 
 function ContactAddress(props) {
   return (
-    <div>
-      <div className="contact-content-column-right text-white absolute top-[100px] end-[100px] text-center max-w-[200px]">
+    <div className="text-center">
+      <div className="contact-content-column-right text-white xl:absolute top-[100px] end-[100px] text-center mx-auto py-5 max-w-[200px]">
         <div className="mb-10">
           <p className="text-sm">
             TELEGRAPH ROAD

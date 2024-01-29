@@ -25,7 +25,7 @@ function ViewsSlide(props) {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     vertical: true,
@@ -46,6 +46,14 @@ function ViewsSlide(props) {
   const slideContentList = [
     {
       id: 1,
+      title: "Views",
+      img: ViewImg,
+      description: `111 aligns old and new, art and engineering, nature and culture, into perfect symmetry: a new line along the skyline, along the center of the park at the center of the island at the center of the world.`,
+      slide: slideAside2,
+      setSlide: setSlideAside2,
+    },
+    {
+      id: 2,
       title: "",
       description: ``,
       img: "",
@@ -58,15 +66,7 @@ function ViewsSlide(props) {
       ),
       slide: slideAside1,
       setSlide: setSlideAside1,
-    },
-    {
-      id: 2,
-      title: "Views",
-      img: ViewImg,
-      description: `111 aligns old and new, art and engineering, nature and culture, into perfect symmetry: a new line along the skyline, along the center of the park at the center of the island at the center of the world.`,
-      slide: slideAside2,
-      setSlide: setSlideAside2,
-    },
+    }
   ];
   const [lightboxShow, setLightboxShow] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState("");
@@ -76,19 +76,19 @@ function ViewsSlide(props) {
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
         {slideContentList.map((value, index) => {
           return (
-            <div className="h-full w-full !flex flex-nowrapp" key={value.id}>
+            <div className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row" key={value.id}>
               {value.title && (
                 <div
                   className={`${
-                    value.slide ? "w-[420px] " : "w-[50px] short_slide "
+                    value.slide ? "w-full lg:w-[420px] " : "w-[50px] short_slide "
                   } transition-all duration-700 h-full bg-primary text-white   relative
           `}
                 >
                   <div
-                    className={`absolute top-[50%]  ${
+                    className={`absolute top-[50%]  translate-y-[-50%] ${
                       value.slide ? "p-[50px]" : ""
                     } w-full'}`}
-                    style={{ transform: "translateY(-50%)" }}
+                    
                   >
                     <h3
                       className={`uppercase mb-3 text-base transition-all duration-100 ${
@@ -109,7 +109,7 @@ function ViewsSlide(props) {
                     onClick={() => value.setSlide(!value.slide)}
                     className={
                       value.slide
-                        ? "arrow-right"
+                        ? "arrow-right hidden lg:block"
                         : "arrow-right arrow-rotate !end-[0px] start-[0%]"
                     }
                   ></button>

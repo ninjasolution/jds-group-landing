@@ -4,7 +4,7 @@ import AmenitiesSlide from "./AmenitiesSlide";
 function Amenities(props) {
   return (
     <div>
-      <div className="container_wrapper h-[75vh] relative bg-[#EFEFEF]">
+      <div className="container_wrapper h-[90vh] lg:h-[75vh] relative bg-[#EFEFEF]">
         <AmenitiesInfo></AmenitiesInfo>
         <AmenitiesSlide></AmenitiesSlide>
       </div>

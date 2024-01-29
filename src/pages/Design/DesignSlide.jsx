@@ -27,7 +27,7 @@ function DesignSlide(props) {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     vertical: true,
@@ -94,18 +94,18 @@ function DesignSlide(props) {
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
         {slideContentList.map((value, index) => {
           return (
-            <div className="h-full w-full !flex flex-nowrapp" key={value.id}>
+            <div className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row" key={value.id}>
               <div
                 className={`${
-                  value.slide ? "w-[420px] " : "w-[50px] short_slide "
+                  value.slide ? "w-full lg:w-[420px] " : "w-[50px] short_slide "
                 } transition-all duration-700 h-full bg-primary text-white   relative
           `}
               >
                 <div
-                  className={`absolute top-[50%]  ${
+                  className={`absolute top-[50%] translate-y-[-50%]  ${
                     value.slide ? "p-[50px]" : ""
                   } w-full'}`}
-                  style={{ transform: "translateY(-50%)" }}
+                  
                 >
                   <h3
                     className={`uppercase mb-3 text-base transition-all duration-100 ${
@@ -126,7 +126,7 @@ function DesignSlide(props) {
                   onClick={() => value.setSlide(!value.slide)}
                   className={
                     value.slide
-                      ? "arrow-right"
+                      ? "arrow-right hidden lg:block"
                       : "arrow-right arrow-rotate !end-[0px] start-[0%]"
                   }
                 ></button>

@@ -19,7 +19,7 @@ function NeighborhoodInfo(props) {
 
   return (
     <div
-      className={`info_screen bg-[#8E8F90] z-[12] absolute top-[40px] bottom-[40px] start-[40px] end-[40px]  ${
+      className={`info_screen bg-[#8E8F90] z-[12] absolute top-[0px] bottom-[0px] start-[0px] end-[0px] sm:top-[40px] sm:bottom-[40px] sm:start-[40px] sm:end-[40px] md:top-[20px] md:bottom-[20px] md:start-[20px] md:end-[20px]  xl:top-[40px] xl:bottom-[40px] xl:start-[40px] xl:end-[40px]  ${
         hideInfoScreen ? "hide_screen" : ""
       }`}
     >
@@ -27,7 +27,7 @@ function NeighborhoodInfo(props) {
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
           MIDTOWN NEIGHBORHOOD
         </h2>
-        <p className="max-w-[600px] text-[26px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
+        <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
           111 West 57th Street anchors a neighborhood of premier cultural
           landmarks; Carnegie Hall and Lincoln Center to the West; the Museum of
           Modern Art a few blocks South; and the living green heart of New York

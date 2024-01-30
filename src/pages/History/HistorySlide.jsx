@@ -37,7 +37,6 @@ function HistorySlide({ historyList }) {
 
   useEffect(() => {
     // Log for demonstration
-    console.log(mainSlideIndex);
     // Update the initial slide of the Slider component
     if (mainSliderRef.current) {
       mainSliderRef.current.slickGoTo(mainSlideIndex);
@@ -46,7 +45,6 @@ function HistorySlide({ historyList }) {
 
   useEffect(() => {
     // Log for demonstration
-    console.log(yearSlideIndex);
     // Update the initial slide of the Slider component
     if (yearSliderRef.current) {
       yearSliderRef.current.slickGoTo(yearSlideIndex);

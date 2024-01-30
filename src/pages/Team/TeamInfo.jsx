@@ -6,7 +6,6 @@ function TeamInfo(props) {
   useEffect(() => {
     const handleScroll = () => {
       setHideInfoScreen(true);
-      console.log("scroll");
     };
 
     window.addEventListener("scroll", handleScroll);

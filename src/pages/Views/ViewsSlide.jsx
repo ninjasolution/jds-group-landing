@@ -31,10 +31,8 @@ function ViewsSlide(props) {
     vertical: true,
     verticalSwiping: true,
     beforeChange: function (currentSlide, nextSlide) {
-      console.log("before change", currentSlide, nextSlide);
     },
     afterChange: function (currentSlide) {
-      console.log("after change", currentSlide);
     },
   };
   const [slideAside1, setSlideAside1] = useState(true);

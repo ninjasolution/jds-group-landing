@@ -1,8 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { NavbarList } from "../../data/NavbarList";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
   const navigationRef = useRef(null);
+
+  const location = useLocation();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -14,7 +17,6 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
 
       if (nav_condition && btn_condition) {
         // Click occurred outside of the navigation component
-        console.log("Clicked outside navigation");
         setToggle(false);
         // Place your logic here for actions to be taken when clicked outside
       } else {
@@ -48,7 +50,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                   toggle ? "show_list" : ""
                 }`}
               >
-                <Link to={value.link} onClick={()=> setToggle(false)} className="ajaxified">
+                <Link to={value.link} onClick={()=> setToggle(false)} className={`ajaxified`} style={{color: location.pathname.includes(value.link) ? 'white' : ""}}>
                   {value.name}
                 </Link>
               </li>
@@ -65,7 +67,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <Link onClick={() => setToggle(false)} to={"/legal"} className="">
+              <Link onClick={() => setToggle(false)} to={"/legal"} className=""  style={{color: location.pathname.includes("legal") ? 'white' : ""}}>
                 Legal
               </Link>
             </li>
@@ -79,6 +81,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 onClick={() => setToggle(false)}
                 to={"/contact"}
                 className=""
+                style={{color: location.pathname.includes("contact") ? 'white' : ""}}
               >
                 Contact
               </Link>
@@ -89,7 +92,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <Link to="/press" onClick={() => setToggle(false)}>Press</Link>
+              <Link to="/press" onClick={() => setToggle(false)}  style={{color: location.pathname.includes("press") ? 'white' : ""}}>Press</Link>
             </li>
           </ul>
         </div>{" "}

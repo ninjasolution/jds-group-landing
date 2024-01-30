@@ -6,7 +6,6 @@ function AmenitiesInfo(props) {
   useEffect(() => {
     const handleScroll = () => {
       setHideInfoScreen(true);
-      console.log('scroll')
     };
 
     window.addEventListener("scroll", handleScroll);

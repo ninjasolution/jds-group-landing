@@ -31,7 +31,7 @@ function DesignInfo(props) {
           to a genuinely opulent exterior finished in terracotta and bronze.” –
           Justin Davidson, New York Magazine
         </p>
-        <div className="text-center mt-5 hidden: lg:block">
+        <div className="text-center mt-5">
           <button
             className="arrow_btn"
             onClick={() => setHideInfoScreen(true)}

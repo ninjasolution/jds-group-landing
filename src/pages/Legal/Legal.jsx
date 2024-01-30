@@ -4,7 +4,7 @@ function Legal(props) {
   return (
     <div>
       <div className="container_wrapper">
-        <div className="bg-[#E53B16] px-[40px] py-[30px] h-[75vh] w-full relative p-1 text-[#877a6b] flex justify-center items-center">
+        <div className="bg-[#9D9588] px-[40px] py-[30px] h-[75vh] w-full relative p-1 text-[#877a6b] flex justify-center items-center">
           <div className="max-w-[700px] mx-auto">
             <p className="text-sm text-center text-white leading-[19px]">
               The artist and computer renderings and interior decorations,

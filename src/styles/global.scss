@@ -13,7 +13,7 @@ body {
 }
 
 ::selection {
-    background: #E53B16;
+    background: #9D9588;
 }
 
 
@@ -144,12 +144,12 @@ body {
 
 // =====================global classes ===================
 .text_primary {
-    color: #E53B16;
+    color: #9D9588;
 }
 
 .custom_select {
     ul {
-        background: #E53B16;
+        background: #9D9588;
         border: none;
         border-radius: 0;
 
@@ -159,7 +159,7 @@ body {
 
             &:hover {
                 background: transparent !important;
-                color: #E53B16;
+                color: #9D9588;
             }
         }
     }
@@ -283,7 +283,7 @@ body {
         width: 30px;
         height: 30px;
         border: none;
-        background: #E53B16;
+        background: #9D9588;
         appearance: none;
         outline: none;
         cursor: pointer;

@@ -63,7 +63,10 @@ function HistorySlide({ historyList }) {
                 key={value.id}
                 className="!flex items-center justify-center flex-col w-full h-full"
               >
-                <button className="text-lg md:text-2xl text-white text-center p-3">
+                <button onClick={()=> {
+                  setMainSlideIndex(index);
+                  setYearSlideIndex(index)
+                }} className="text-lg md:text-2xl text-white text-center p-3">
                   {value.year}
                 </button>
               </div>

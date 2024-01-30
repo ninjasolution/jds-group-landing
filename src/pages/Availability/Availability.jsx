@@ -11,7 +11,11 @@ function Availability(props) {
       exterior: "- / -",
       exposure: "N,S,E,W",
       price: "$ 22,750,000",
-      view: "",
+      view: (
+        <a target="_blank" className="underline" href={PDF1}>
+          Floor Plan
+        </a>
+      ),
     },
     {
       id: 2,
@@ -21,7 +25,11 @@ function Availability(props) {
       exterior: "- / -",
       exposure: "N,S,E,W",
       price: "$ 28,500,000",
-      view: "",
+      view: (
+        <a target="_blank" className="underline" href={PDF1}>
+          Floor Plan
+        </a>
+      ),
     },
     {
       id: 3,
@@ -31,7 +39,11 @@ function Availability(props) {
       exterior: "- / -",
       exposure: "N,S,E,W",
       price: "$ 16,500,000",
-      view: "",
+      view: (
+        <a target="_blank" className="underline" href={PDF1}>
+          Floor Plan
+        </a>
+      ),
     },
     {
       id: 4,
@@ -41,7 +53,11 @@ function Availability(props) {
       exterior: "309 / 29",
       exposure: "N,S,E,W",
       price: "$ 54,600,000",
-      view: "",
+      view: (
+        <a target="_blank" className="underline" href={PDF1}>
+          Floor Plan
+        </a>
+      ),
     },
     {
       id: 5,
@@ -51,7 +67,11 @@ function Availability(props) {
       exterior: "3,788 / 352",
       exposure: "N,S,E,W",
       price: "$ 21,000,000",
-      view: "",
+      view: (
+        <a target="_blank" className="underline" href={PDF1}>
+          Floor Plan
+        </a>
+      ),
     },
     {
       id: 6,
@@ -61,7 +81,11 @@ function Availability(props) {
       exterior: "1,367 / 127",
       exposure: "N,S,E,W",
       price: "$ 66,000,000",
-      view: "",
+      view: (
+        <a target="_blank" className="underline" href={PDF1}>
+          Floor Plan
+        </a>
+      ),
     },
     {
       id: 7,
@@ -71,7 +95,11 @@ function Availability(props) {
       exterior: "- / -",
       exposure: "N,S,E,W",
       price: "$ 26,500,000",
-      view: "",
+      view: (
+        <a target="_blank" className="underline" href={PDF1}>
+          Floor Plan
+        </a>
+      ),
     },
     {
       id: 8,

@@ -19,11 +19,11 @@ function TeamInfo(props) {
 
   return (
     <div
-      className={`info_screen bg-[#7C7262] z-10 absolute top-[0px] bottom-[0px] start-[0px] end-[0px] sm:top-[40px] sm:bottom-[40px] sm:start-[40px] sm:end-[40px] md:top-[20px] md:bottom-[20px] md:start-[20px] md:end-[20px]  xl:top-[40px] xl:bottom-[40px] xl:start-[40px] xl:end-[40px]  ${
+      className={`info_screen bg-[#E53B16] z-10 absolute top-[0px] bottom-[0px] start-[0px] end-[0px] sm:top-[40px] sm:bottom-[40px] sm:start-[40px] sm:end-[40px] md:top-[20px] md:bottom-[20px] md:start-[20px] md:end-[20px]  xl:top-[40px] xl:bottom-[40px] xl:start-[40px] xl:end-[40px]  ${
         hideInfoScreen ? "hide_screen" : ""
       }`}
     >
-      <div className="bg-[#7C7262] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
+      <div className="bg-[#E53B16] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
           TEAM
         </h2>

@@ -128,7 +128,7 @@ function ViewsSlide(props) {
                       setLightboxShow(true);
                       setLightboxSrc(value.img);
                     }}
-                    className="w-8 h-8 absolute end-5 top-5 group bg-[#7c7262] hover:bg-white cursor-pointer flex items-center justify-center z-50"
+                    className="w-8 h-8 absolute end-5 top-5 group bg-[#E53B16] hover:bg-white cursor-pointer flex items-center justify-center z-50"
                   >
                     <svg
                       width={10}
@@ -136,7 +136,7 @@ function ViewsSlide(props) {
                       viewBox="0 0 10 10"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="#FFF"
-                      className="group-hover:fill-current rotate-45 group-hover:text-[#7c7262]"
+                      className="group-hover:fill-current rotate-45 group-hover:text-[#E53B16]"
                     >
                       <path
                         d="M4.328 5.036L1.146 1.854.793 1.5 1.5.793l.354.353 3.182 3.182 3.182-3.182.353-.353.708.707-.353.354-3.182 3.182 3.182 3.182.353.353-.707.708-.352-.353-3.182-3.182-3.182 3.182-.354.353-.707-.707.353-.352 3.182-3.182z"

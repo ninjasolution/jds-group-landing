@@ -36,7 +36,7 @@
 .hamburger-inner:before {
     width: 14px;
     height: 2px;
-    background-color: #7c7262;
+    background-color: #E53B16;
     border-radius: 2px;
     position: absolute;
     transition-property: transform;
@@ -98,8 +98,8 @@
 
 
 #navigation {
-    background: #8c8d8d;
-    background: linear-gradient(45deg,#8c8d8d,#8e857d);
+    background: #E53B16;
+    background: linear-gradient(45deg,#E53B16,#8e857d);
     z-index: 1000;
     // position
     position: fixed;

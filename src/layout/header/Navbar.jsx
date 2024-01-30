@@ -131,7 +131,7 @@ function HeaderNavbar(props) {
             </div>
             <a
               href="javascript:void(0)"
-              className="text_primary hover:text-[#4d4e4c]"
+              className="text_primary hover:text-[#E53B16]"
             >
               {toggle ? "CLOSE" : "MENU"}
             </a>

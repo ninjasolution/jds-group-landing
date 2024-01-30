@@ -13,7 +13,7 @@ body {
 }
 
 ::selection {
-    background: #7c7262;
+    background: #E53B16;
 }
 
 
@@ -144,12 +144,12 @@ body {
 
 // =====================global classes ===================
 .text_primary {
-    color: #7c7262;
+    color: #E53B16;
 }
 
 .custom_select {
     ul {
-        background: #4D4E4C;
+        background: #E53B16;
         border: none;
         border-radius: 0;
 
@@ -159,7 +159,7 @@ body {
 
             &:hover {
                 background: transparent !important;
-                color: #7c7262;
+                color: #E53B16;
             }
         }
     }
@@ -197,7 +197,7 @@ body {
 
 .arrow_btn {
     border-color: transparent;
-    border-top-color: #4d4e4c;
+    border-top-color: #fff;
     border-width: 12px;
     transition: transform .2s ease-in-out;
 
@@ -283,7 +283,7 @@ body {
         width: 30px;
         height: 30px;
         border: none;
-        background: #7c7262;
+        background: #E53B16;
         appearance: none;
         outline: none;
         cursor: pointer;
@@ -322,6 +322,31 @@ body {
             max-height: 100%;
             display: block;
             margin: 0 auto;
+        }
+    }
+}
+
+.historySlide .slick-slide {
+    height: 500px;
+
+    >div {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.historyYearSlide .slick-slide {
+    height: 100px;
+
+    >div {
+        width: 100%;
+        height: 100%;
+    }
+
+    &.slick-current {
+        button {
+            color: #897158;
+            transform: scale(1.5);
         }
     }
 }

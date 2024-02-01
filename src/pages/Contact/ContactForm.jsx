@@ -2,8 +2,64 @@ import React, { useState } from "react";
 import { Select, Option } from "@material-tailwind/react";
 import { useCountries } from "use-react-countries";
 import { states } from "../../data/States";
-function ContactForm(props) {
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+function ContactForm() {
+
   const { countries } = useCountries();
+  const [ isBroker, setIsBroker ] = useState(false)
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      state: "",
+      city: "",
+      zip: "",
+      country: "",
+      phone: "",
+      referral: "",
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      lastName: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      address: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      state: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      city: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      zip: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(6, "Must be 6 characters or less")
+        .required("Required"),
+      phone: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      referral: Yup.string()
+        .min(3, "Must be 3 characters or more")
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+    }),
+  });
+
   return (
     <form action="" className="w-full xl:max-w-[600px] mx-auto p-8 text-white">
       <h3 className="text-center text-white">REGISTER</h3>
@@ -11,8 +67,8 @@ function ContactForm(props) {
       <div className="input_group">
         <input
           type="text"
-          name="first_name"
-          required
+          name="firstName"
+          {...formik.getFieldProps("firstName")}
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="FIRST NAME*"
         />
@@ -21,8 +77,8 @@ function ContactForm(props) {
       <div className="input_group">
         <input
           type="text"
-          name="last_name"
-          required
+          name="lastName"
+          {...formik.getFieldProps("lastName")}
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="LAST NAME*"
         />
@@ -32,7 +88,7 @@ function ContactForm(props) {
         <input
           type="text"
           name="address"
-          required
+          {...formik.getFieldProps("address")}
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="ADDRESS"
         />
@@ -41,7 +97,7 @@ function ContactForm(props) {
       <div className="input_group">
         <div className="custom_select">
           <Select
-            required
+            {...formik.getFieldProps("address")}
             label="STATE"
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9 !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
@@ -56,7 +112,7 @@ function ContactForm(props) {
         <div className="input_group flex-1">
           <input
             type="text"
-            required
+            {...formik.getFieldProps("city")}
             name="city"
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
             placeholder="CITY"
@@ -65,7 +121,7 @@ function ContactForm(props) {
         <div className="input_group w-[130px]">
           <input
             type="text"
-            required
+            {...formik.getFieldProps("zip")}
             name="zip"
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
             placeholder="ZIP"
@@ -76,7 +132,7 @@ function ContactForm(props) {
       <div className="input_group">
         <div className="custom_select">
           <Select
-            required
+            {...formik.getFieldProps("country")}
             label="Select Country"
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
             selected={(element) =>
@@ -108,7 +164,7 @@ function ContactForm(props) {
 
       <div className="input_group">
         <input
-          required
+          {...formik.getFieldProps("email")}
           type="email"
           name="email"
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
@@ -117,9 +173,9 @@ function ContactForm(props) {
       </div>
       <div className="input_group">
         <input
-          required
+          {...formik.getFieldProps("phone")}
           type="number"
-          name="contact_number"
+          name="phone"
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="CONTACT NUMBER*"
         />
@@ -129,6 +185,7 @@ function ContactForm(props) {
           <Select
             required
             label="HOW DID YOU HEAR ABOUT US?"
+            {...formik.getFieldProps("referral")}
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9  !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
             <Option>CURBED.COM</Option>

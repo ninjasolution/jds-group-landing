@@ -8,7 +8,7 @@ import * as Yup from "yup";
 function ContactForm() {
 
   const { countries } = useCountries();
-  const [ isBroker, setIsBroker ] = useState(false)
+  const [isBroker, setIsBroker] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -72,6 +72,11 @@ function ContactForm() {
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="FIRST NAME*"
         />
+        {formik.touched.firstName && formik.errors.firstName && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.firstName}
+          </div>
+        )}
       </div>
 
       <div className="input_group">
@@ -82,6 +87,11 @@ function ContactForm() {
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="LAST NAME*"
         />
+        {formik.touched.lastName && formik.errors.lastName && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.lastName}
+          </div>
+        )}
       </div>
 
       <div className="input_group">
@@ -92,12 +102,17 @@ function ContactForm() {
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="ADDRESS"
         />
+        {formik.touched.address && formik.errors.address && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.address}
+          </div>
+        )}
       </div>
 
       <div className="input_group">
         <div className="custom_select">
           <Select
-            {...formik.getFieldProps("address")}
+            {...formik.getFieldProps("state")}
             label="STATE"
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9 !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
@@ -106,6 +121,11 @@ function ContactForm() {
             ))}
           </Select>
         </div>
+        {formik.touched.state && formik.errors.state && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.state}
+          </div>
+        )}
       </div>
 
       <div className="flex items-center">
@@ -117,6 +137,11 @@ function ContactForm() {
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
             placeholder="CITY"
           />
+          {formik.touched.city && formik.errors.city && (
+            <div className="min-h-[36px] text-sm text-[#ff0000]">
+              {formik.errors.city}
+            </div>
+          )}
         </div>
         <div className="input_group w-[130px]">
           <input
@@ -126,6 +151,11 @@ function ContactForm() {
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
             placeholder="ZIP"
           />
+           {formik.touched.zip && formik.errors.zip && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.zip}
+          </div>
+        )}
         </div>
       </div>
 
@@ -159,6 +189,11 @@ function ContactForm() {
               </Option>
             ))}
           </Select>
+          {formik.touched.country && formik.errors.country && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.country}
+          </div>
+        )}
         </div>
       </div>
 
@@ -170,6 +205,11 @@ function ContactForm() {
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="E-MAIL*"
         />
+         {formik.touched.email && formik.errors.email && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.email}
+          </div>
+        )}
       </div>
       <div className="input_group">
         <input
@@ -179,6 +219,11 @@ function ContactForm() {
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
           placeholder="CONTACT NUMBER*"
         />
+         {formik.touched.phone && formik.errors.phone && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.phone}
+          </div>
+        )}
       </div>
       <div className="input_group">
         <div className="custom_select">
@@ -199,6 +244,11 @@ function ContactForm() {
             <Option>SITE SIGNAGE</Option>
           </Select>
         </div>
+        {formik.touched.referral && formik.errors.referral && (
+          <div className="min-h-[36px] text-sm text-[#ff0000]">
+            {formik.errors.referral}
+          </div>
+        )}
       </div>
       <div className="input_group">
         <div className="flex items-center justify-between">

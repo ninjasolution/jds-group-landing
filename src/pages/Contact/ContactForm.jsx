@@ -255,13 +255,13 @@ function ContactForm() {
           <span className="text-sm">Are you a broker?</span>
           <div className="flex items-center">
             <div className="mx-3">
-              <input type="radio" required name="broker" id="broker_yes" />
+              <input type="radio" name="broker" id="broker_yes" />
               <label htmlFor="broker_yes" className="text-sm ms-1">
                 Yes
               </label>
             </div>
             <div className="">
-              <input type="radio" required name="broker" id="broker_no" />
+              <input type="radio" name="broker" id="broker_no" />
               <label htmlFor="broker_no" className="text-sm ms-1">
                 No
               </label>

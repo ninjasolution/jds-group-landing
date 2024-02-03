@@ -50,6 +50,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
       id: 3,
@@ -64,6 +74,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
       id: 4,
@@ -78,6 +98,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
       id: 5,
@@ -92,6 +122,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
       id: 6,
@@ -106,6 +146,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
       id: 7,
@@ -120,6 +170,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
       id: 8,
@@ -134,9 +194,19 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
-      id: 8,
+      id: 9,
       residence: "9",
       bedroon: "3 / 3.5",
       interior: "4,183 / 389",
@@ -148,6 +218,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
   ];
 

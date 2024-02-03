@@ -281,6 +281,9 @@ body {
         margin-top: -29px;
         margin-left: -137px;
         box-shadow: none;
+        &.active_lang{
+            margin-left: -25px;
+        }
 
         button {
             color: #9D9588;

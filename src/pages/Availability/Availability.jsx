@@ -25,7 +25,7 @@ function Availability(props) {
       price: "$ 22,750,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -49,7 +49,7 @@ function Availability(props) {
       price: "$ 28,500,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -73,7 +73,7 @@ function Availability(props) {
       price: "$ 16,500,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -97,7 +97,7 @@ function Availability(props) {
       price: "$ 54,600,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -121,7 +121,7 @@ function Availability(props) {
       price: "$ 21,000,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -145,7 +145,7 @@ function Availability(props) {
       price: "$ 66,000,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -169,7 +169,7 @@ function Availability(props) {
       price: "$ 26,500,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -193,7 +193,7 @@ function Availability(props) {
       price: "$ 66,000,000",
       view: (
         <a target="_blank" className="underline" href={PDF1}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [
@@ -217,7 +217,7 @@ function Availability(props) {
       price: "$ 26,500,000",
       view: (
         <a target="_blank" className="underline" href={PDF2}>
-          Floor Plan
+          {t('floor_plan')}
         </a>
       ),
       sliderImg: [

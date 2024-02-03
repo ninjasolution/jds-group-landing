@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import { useTranslation } from "react-i18next";
 function ResidencesInfo(props) {
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,13 +25,10 @@ function ResidencesInfo(props) {
     >
       <div className="bg-[#7A766C] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          RESIDENCES
+          {t("residences_info.title")}
         </h2>
         <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          With graceful central entrance galleries featuring horizon-deep views
-          north and south, and monumental ceiling heights, each full-floor tower
-          residence combines a grand scale with comfortable, private settings
-          for contemporary living.
+          {t("residences_info.desc")}
         </p>
         <div className="text-center mt-5">
           <button

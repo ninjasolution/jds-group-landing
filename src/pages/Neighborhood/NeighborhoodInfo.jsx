@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import { useTranslation } from "react-i18next";
 function NeighborhoodInfo(props) {
+  const { i18n, t } = useTranslation();
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setHideInfoScreen(true);
@@ -24,13 +24,10 @@ function NeighborhoodInfo(props) {
     >
       <div className="bg-[#8E8F90] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          MIDTOWN NEIGHBORHOOD
+          {t("neighborhood_info.title")}
         </h2>
         <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          111 West 57th Street anchors a neighborhood of premier cultural
-          landmarks; Carnegie Hall and Lincoln Center to the West; the Museum of
-          Modern Art a few blocks South; and the living green heart of New York
-          City, Central Park, just steps to the North.
+          {t("neighborhood_info.desc")}
         </p>
         <div className="text-center mt-5">
           <button

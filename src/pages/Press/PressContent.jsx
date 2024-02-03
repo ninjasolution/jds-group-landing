@@ -1,67 +1,63 @@
 import React from "react";
 import PressImg from "../../assets/images/press/111-west-57-street-penthouse-view.webp";
+import { useTranslation } from "react-i18next";
 function PressContent(props) {
+  const { i18n, t } = useTranslation();
   const press_content_list = [
     {
       id: 1,
-      title: "THE WALL STREET JOURNAL",
-      subtitle:
-        "A New York Penthouse 1,000 Feet Above Street Level Fetches $50 Million-Plus",
+      title: t("press_content.content_1.title"),
+      subtitle: t("press_content.content_1.subtitle"),
       date: "DECEMBER 8, 2020",
       img: PressImg,
       link: "http://jdsdevelopment.com/",
-      description: `The contract for an apartment at 111 West 57th Street is one of the biggest signed in New York since the start of the pandemic.`,
+      description: t("press_content.content_1.desc"),
     },
     {
-        id: 2,
-        title: "THE WALL STREET JOURNAL",
-        subtitle:
-          "A New York Penthouse 1,000 Feet Above Street Level Fetches $50 Million-Plus",
-        date: "DECEMBER 8, 2020",
-        img: PressImg,
-        link: "http://jdsdevelopment.com/",
-        description: `The contract for an apartment at 111 West 57th Street is one of the biggest signed in New York since the start of the pandemic.`,
-      },
-      {
-        id: 3,
-        title: "THE WALL STREET JOURNAL",
-        subtitle:
-          "A New York Penthouse 1,000 Feet Above Street Level Fetches $50 Million-Plus",
-        date: "DECEMBER 8, 2020",
-        img: PressImg,
-        link: "http://jdsdevelopment.com/",
-        description: `The contract for an apartment at 111 West 57th Street is one of the biggest signed in New York since the start of the pandemic.`,
-      },
-      {
-        id: 4,
-        title: "THE WALL STREET JOURNAL",
-        subtitle:
-          "A New York Penthouse 1,000 Feet Above Street Level Fetches $50 Million-Plus",
-        date: "DECEMBER 8, 2020",
-        img: PressImg,
-        link: "http://jdsdevelopment.com/",
-        description: `The contract for an apartment at 111 West 57th Street is one of the biggest signed in New York since the start of the pandemic.`,
-      },
-      {
-        id: 5,
-        title: "THE WALL STREET JOURNAL",
-        subtitle:
-          "A New York Penthouse 1,000 Feet Above Street Level Fetches $50 Million-Plus",
-        date: "DECEMBER 8, 2020",
-        img: PressImg,
-        link: "http://jdsdevelopment.com/",
-        description: `The contract for an apartment at 111 West 57th Street is one of the biggest signed in New York since the start of the pandemic.`,
-      },
-      {
-        id: 6,
-        title: "THE WALL STREET JOURNAL",
-        subtitle:
-          "A New York Penthouse 1,000 Feet Above Street Level Fetches $50 Million-Plus",
-        date: "DECEMBER 8, 2020",
-        img: PressImg,
-        link: "http://jdsdevelopment.com/",
-        description: `The contract for an apartment at 111 West 57th Street is one of the biggest signed in New York since the start of the pandemic.`,
-      },
+      id: 2,
+      title: t("press_content.content_1.title"),
+      subtitle: t("press_content.content_1.subtitle"),
+      date: "DECEMBER 8, 2020",
+      img: PressImg,
+      link: "http://jdsdevelopment.com/",
+      description: t("press_content.content_1.desc"),
+    },
+    {
+      id: 3,
+      title: t("press_content.content_1.title"),
+      subtitle: t("press_content.content_1.subtitle"),
+      date: "DECEMBER 8, 2020",
+      img: PressImg,
+      link: "http://jdsdevelopment.com/",
+      description: t("press_content.content_1.desc"),
+    },
+    {
+      id: 4,
+      title: t("press_content.content_1.title"),
+      subtitle: t("press_content.content_1.subtitle"),
+      date: "DECEMBER 8, 2020",
+      img: PressImg,
+      link: "http://jdsdevelopment.com/",
+      description: t("press_content.content_1.desc"),
+    },
+    {
+      id: 5,
+      title: t("press_content.content_1.title"),
+      subtitle: t("press_content.content_1.subtitle"),
+      date: "DECEMBER 8, 2020",
+      img: PressImg,
+      link: "http://jdsdevelopment.com/",
+      description: t("press_content.content_1.desc"),
+    },
+    {
+      id: 6,
+      title: t("press_content.content_1.title"),
+      subtitle: t("press_content.content_1.subtitle"),
+      date: "DECEMBER 8, 2020",
+      img: PressImg,
+      link: "http://jdsdevelopment.com/",
+      description: t("press_content.content_1.desc"),
+    },
   ];
   return (
     <div className="h-full overflow-auto custom_scrollbar">
@@ -70,7 +66,8 @@ function PressContent(props) {
           return (
             <li key={value.id} className="mb-10">
               <h2 className="text-white text-base text-center mb-2">
-                <span className="italic inline-block mb-1">{value.title}</span> <br />
+                <span className="italic inline-block mb-1">{value.title}</span>{" "}
+                <br />
                 <span>{value.date}</span>
               </h2>
               <h3 className="text-lg text-center mb-[26px]">
@@ -101,7 +98,7 @@ function PressContent(props) {
                   className="text-white text-base text-center"
                 >
                   {" "}
-                  - Read More
+                  - {t("read_more")}
                 </a>
               </div>
             </li>

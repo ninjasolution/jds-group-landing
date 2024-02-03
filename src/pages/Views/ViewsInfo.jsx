@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import { useTranslation } from "react-i18next";
 function ViewsInfo(props) {
+  const { i18n, t } = useTranslation();
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
 
   useEffect(() => {
@@ -24,13 +25,10 @@ function ViewsInfo(props) {
     >
       <div className="bg-primary flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          VIEWS
+          {t("views_info.title")}
         </h2>
         <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          111 aligns old and new, art and engineering, nature and culture, into
-          perfect symmetry: a new line along the skyline, along the center of
-          the park at the center of the island at the center of the world.
-          Justin Davidson, New York Magazine
+          {t("views_info.desc")}
         </p>
         <div className="text-center mt-5">
           <button

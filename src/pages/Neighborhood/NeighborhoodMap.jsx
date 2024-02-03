@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
+import { useTranslation } from "react-i18next";
 function NeighborhoodMap(props) {
+  const { i18n, t } = useTranslation();
   const [shoppingShow, setShoppingShow] = useState(true);
   const [medicalShow, setMedicalShow] = useState(true);
   const [golfShow, setGolfShow] = useState(true);
@@ -22,7 +23,7 @@ function NeighborhoodMap(props) {
               className="imgneigh"
               src="http://paulm160.sg-host.com/pymble/maps/shopping_brown.svg"
             />{" "}
-            Shopping and Retail
+            {t("neighborhood_text.shopping")}
           </button>
           <button
             onClick={() => setMedicalShow(!medicalShow)}
@@ -35,7 +36,7 @@ function NeighborhoodMap(props) {
               className="imgneigh"
               src="http://paulm160.sg-host.com/pymble/maps/med_brown.svg"
             />{" "}
-            Medical &amp; Hospital
+            {t("neighborhood_text.medical")}
           </button>
           <button
             onClick={() => setGolfShow(!golfShow)}
@@ -49,7 +50,7 @@ function NeighborhoodMap(props) {
               className="imgneigh"
               src="http://paulm160.sg-host.com/pymble/maps/park_brown.svg"
             />
-            Golf And Parks
+            {t("neighborhood_text.golf")}
           </button>
         </div>
         <div id="map-container" className="dragdealer">
@@ -66,7 +67,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "55.0101%", top: "15.5%" }}
                 >
                   <a href="#" className="tooltip">
-                    Saint Ives Shopping Village{" "}
+                    {t("neighborhood_text.saint")}
                   </a>
                 </li>
               )}
@@ -78,7 +79,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "48.8101%", top: "44.4%" }}
                 >
                   <a href="#" className="tooltip">
-                    Pymble Train Station{" "}
+                    {t("neighborhood_text.pymble")}
                   </a>
                 </li>
               )}
@@ -90,7 +91,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "49.1101%", top: "64.8%" }}
                 >
                   <a href="#" className="tooltip">
-                    Gordon Center{" "}
+                    {t("neighborhood_text.gordon")}
                   </a>
                 </li>
               )}
@@ -102,7 +103,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "28.7%", top: "86.91%" }}
                 >
                   <a href="#" className="tooltip">
-                    Mackquarie Central{" "}
+                    {t("neighborhood_text.mack")}
                   </a>
                 </li>
               )}
@@ -113,7 +114,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "30.5578%", top: "76.91%" }}
                 >
                   <a href="#" className="tooltip">
-                    Mackquarie University Hospital{" "}
+                    {t("neighborhood_text.mack_hos")}
                   </a>
                 </li>
               )}
@@ -124,7 +125,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "25.3%", top: "28.2%" }}
                 >
                   <a href="#" className="tooltip">
-                    Sydney Adventist Hospital{" "}
+                    {t("neighborhood_text.syd")}
                   </a>
                 </li>
               )}
@@ -135,7 +136,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "37.6%", top: "52.5%" }}
                 >
                   <a href="#" className="tooltip">
-                    Avondale Golf Club{" "}
+                    {t("neighborhood_text.avondale")}
                   </a>
                 </li>
               )}
@@ -146,7 +147,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "33%", top: "65.7%" }}
                 >
                   <a href="#" className="tooltip">
-                    Lane Cove National Park{" "}
+                    {t("neighborhood_text.lane")}
                   </a>
                 </li>
               )}
@@ -157,7 +158,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "53.9871%", top: "20.6369%" }}
                 >
                   <a href="#" className="tooltip">
-                    Pymble Golf Club{" "}
+                    {t("neighborhood_text.py_club")}
                   </a>
                 </li>
               )}
@@ -168,7 +169,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "56.1871%", top: "28.2369%" }}
                 >
                   <a href="#" className="tooltip">
-                    Robert Pymble Park{" "}
+                    {t("neighborhood_text.robert")}
                   </a>
                 </li>
               )}
@@ -179,7 +180,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "53.1101%", top: "50.9%" }}
                 >
                   <a href="#" className="tooltip">
-                    Richmond Park{" "}
+                    {t("neighborhood_text.rickmond")}
                   </a>
                 </li>
               )}
@@ -190,7 +191,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "47.1101%", top: "71.2%" }}
                 >
                   <a href="#" className="tooltip">
-                    Gordon's Golf Club{" "}
+                    {t("neighborhood_text.gor_club")}
                   </a>
                 </li>
               )}
@@ -201,7 +202,7 @@ function NeighborhoodMap(props) {
                   style={{ left: "51.6%", top: "80.2%" }}
                 >
                   <a href="#" className="tooltip">
-                    Killara's Golf Club{" "}
+                    {t("neighborhood_text.kill_club")}
                   </a>
                 </li>
               )}

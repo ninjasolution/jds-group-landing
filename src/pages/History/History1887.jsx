@@ -1,13 +1,14 @@
 import React from "react";
 import HistoryComp from "./HistoryComp";
 import Img1887 from "../../assets/images/history/1887-history-lg-5-1000x500.jpg";
-
+import { useTranslation } from "react-i18next";
 function History1887(props) {
+  const { i18n, t } = useTranslation();
   return (
     <HistoryComp
       title={"1887"}
-      subtitle={"THE ORIGINAL ARCHITECTS: MASTERS OF MANHATTAN"}
-      description={`The celebrated firm Warren & Wetmore is founded in 1887. The firm designs many of Manhattan's most refined residential and cultural buildings, from 927 Fifth Avenue to Grand Central Station, and go on to design Steinway Hall in 1923. Warren & Wetmore's artistic approach culminates in classical proportions, carefully carved stonework, and a picturesque roofline.`}
+      subtitle={t('history_item.item_2.subtitle')}
+      description={t('history_item.item_2.desc')}
       img={Img1887}
       prev_year={`1853`}
       prev_year_link={`history/1853`}

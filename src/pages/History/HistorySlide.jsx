@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 function HistorySlide({ historyList }) {
   const [yearSlideIndex, setYearSlideIndex] = useState(0);
   const [mainSlideIndex, setMainSlideIndex] = useState(0);
   const mainSliderRef = useRef(null);
   const yearSliderRef = useRef(null);
-
+  const { i18n, t } = useTranslation();
   const settingsYearSlide = {
     dots: false,
     infinite: false,
@@ -101,7 +103,9 @@ function HistorySlide({ historyList }) {
 
                   <div className="copy p-5 text-center">
                     <h3 className="text-base text-white mb-2">{value.title}</h3>
-                    <button className="text-white">More</button>
+                    <button className="text-white hover:text-primary-2 text-[12px]">
+                      {t("more")}
+                    </button>
                   </div>
                 </Link>
               </div>

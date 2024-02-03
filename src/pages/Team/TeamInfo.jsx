@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import { useTranslation } from "react-i18next";
 function TeamInfo(props) {
+  const { i18n, t } = useTranslation();
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
 
   useEffect(() => {
@@ -24,15 +25,13 @@ function TeamInfo(props) {
     >
       <div className="bg-[#9D9588] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          TEAM
+          {t("team_info.title")}
         </h2>
         <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          “You’re going to sense the spirit of making and building. You’re going
-          to sense that there are very much human hands involved in how this
-          building begins to manifest itself.”
+          {t("team_info.desc")}
           <br />
           <br />
-          —Chris Sharples, SHoP Architects
+          {t("team_info.name")}
         </p>
         <div className="text-center mt-5">
           <button

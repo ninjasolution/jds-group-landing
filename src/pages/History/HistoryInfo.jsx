@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function HistoryInfo(props) {
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,13 +26,10 @@ function HistoryInfo(props) {
     >
       <div className="bg-[#343534] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          HISTORY
+          {t("history")}
         </h2>
         <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          The history of 111 West 57th Street is a piece of music in two great
-          movements, bringing together the best of New York City’s prewar Golden
-          Age of architectural design, with the best of today’s contemporary
-          creativity in design innovation, engineering, and construction.
+          {t("history_desc")}
         </p>
         <div className="text-center mt-5">
           <button

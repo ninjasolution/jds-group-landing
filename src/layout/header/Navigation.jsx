@@ -41,7 +41,10 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
       className={`overlay ${toggle ? "show_nav" : ""}`}
     >
       <div className="menu-main-navigation-container overflow-hidden my-3">
-        <ul id="menu-main-navigation" className="menu h-full justify-center items-center flex flex-col overflow-auto">
+        <ul
+          id="menu-main-navigation"
+          className="menu h-full justify-center items-center flex flex-col overflow-auto"
+        >
           {NavbarList.map((value, index) => {
             return (
               <li
@@ -52,8 +55,17 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                   toggle ? "show_list" : ""
                 }`}
               >
-                <Link to={value.link} onClick={()=> setToggle(false)} className={`ajaxified`} style={{color: location.pathname.includes(value.link) ? 'white' : ""}}>
-                {t(value.name.toLowerCase())}
+                <Link
+                  to={value.link}
+                  onClick={() => setToggle(false)}
+                  className={`ajaxified`}
+                  style={{
+                    color: location.pathname.includes(value.link)
+                      ? "white"
+                      : "",
+                  }}
+                >
+                  {t(value.name.toLowerCase())}
                 </Link>
               </li>
             );
@@ -69,8 +81,15 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <Link onClick={() => setToggle(false)} to={"/legal"} className=""  style={{color: location.pathname.includes("legal") ? 'white' : ""}}>
-                Legal
+              <Link
+                onClick={() => setToggle(false)}
+                to={"/legal"}
+                className=""
+                style={{
+                  color: location.pathname.includes("legal") ? "white" : "",
+                }}
+              >
+                {t("legal")}
               </Link>
             </li>
             <li
@@ -83,9 +102,11 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 onClick={() => setToggle(false)}
                 to={"/contact"}
                 className=""
-                style={{color: location.pathname.includes("contact") ? 'white' : ""}}
+                style={{
+                  color: location.pathname.includes("contact") ? "white" : "",
+                }}
               >
-                Contact
+                {t("contact")}
               </Link>
             </li>
             <li
@@ -94,7 +115,15 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 toggle ? "show_list" : ""
               }`}
             >
-              <Link to="/press" onClick={() => setToggle(false)}  style={{color: location.pathname.includes("press") ? 'white' : ""}}>Press</Link>
+              <Link
+                to="/press"
+                onClick={() => setToggle(false)}
+                style={{
+                  color: location.pathname.includes("press") ? "white" : "",
+                }}
+              >
+                {t("Press")}
+              </Link>
             </li>
           </ul>
         </div>{" "}

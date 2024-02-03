@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import ViewImg from "../../assets/images/views/a-new-york-penthouse-1000-feet-above-street-level-fetches-50-million-plus-1680x845.jpg";
 import LightboxScreen from "../../components/LightboxScreen";
+import { useTranslation } from "react-i18next";
 function ViewsSlide(props) {
+  const { i18n, t } = useTranslation();
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -30,10 +32,8 @@ function ViewsSlide(props) {
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    beforeChange: function (currentSlide, nextSlide) {
-    },
-    afterChange: function (currentSlide) {
-    },
+    beforeChange: function (currentSlide, nextSlide) {},
+    afterChange: function (currentSlide) {},
   };
   const [slideAside1, setSlideAside1] = useState(true);
   const [slideAside2, setSlideAside2] = useState(true);
@@ -44,9 +44,9 @@ function ViewsSlide(props) {
   const slideContentList = [
     {
       id: 1,
-      title: "Views",
+      title: t("views_slide.slide_1.title"),
       img: ViewImg,
-      description: `111 aligns old and new, art and engineering, nature and culture, into perfect symmetry: a new line along the skyline, along the center of the park at the center of the island at the center of the world.`,
+      description: t("views_slide.slide_1.desc"),
       slide: slideAside2,
       setSlide: setSlideAside2,
     },
@@ -64,7 +64,7 @@ function ViewsSlide(props) {
       ),
       slide: slideAside1,
       setSlide: setSlideAside1,
-    }
+    },
   ];
   const [lightboxShow, setLightboxShow] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState("");
@@ -74,11 +74,16 @@ function ViewsSlide(props) {
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
         {slideContentList.map((value, index) => {
           return (
-            <div className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row" key={value.id}>
+            <div
+              className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row"
+              key={value.id}
+            >
               {value.title && (
                 <div
                   className={`${
-                    value.slide ? "w-full lg:w-[420px] " : "w-[50px] short_slide "
+                    value.slide
+                      ? "w-full lg:w-[420px] "
+                      : "w-[50px] short_slide "
                   } transition-all duration-700 h-full bg-primary text-white   relative
           `}
                 >
@@ -86,7 +91,6 @@ function ViewsSlide(props) {
                     className={`absolute top-[50%]  translate-y-[-50%] ${
                       value.slide ? "p-[50px]" : ""
                     } w-full'}`}
-                    
                   >
                     <h3
                       className={`uppercase mb-3 text-base transition-all duration-100 ${

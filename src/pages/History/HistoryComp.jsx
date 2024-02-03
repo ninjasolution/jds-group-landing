@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import LightboxScreen from "../../components/LightboxScreen";
+import { useTranslation } from "react-i18next";
 function HistoryComp({
   title,
   subtitle,
@@ -10,8 +11,10 @@ function HistoryComp({
   prev_year,
   next_year,
   prev_year_link,
-  next_year_link
+  next_year_link,
 }) {
+  const { i18n, t } = useTranslation();
+  
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
 
   const settings = {
@@ -21,10 +24,8 @@ function HistoryComp({
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    beforeChange: function (currentSlide, nextSlide) {
-    },
-    afterChange: function (currentSlide) {
-    },
+    beforeChange: function (currentSlide, nextSlide) {},
+    afterChange: function (currentSlide) {},
   };
   const [slideAside1, setSlideAside1] = useState(true);
 
@@ -160,7 +161,7 @@ function HistoryComp({
                         >
                           <path d="M0 0L3 3L0 6" />
                         </svg>
-                        Timeline
+                        {t("timeline")}
                       </Link>
                     </div>
 

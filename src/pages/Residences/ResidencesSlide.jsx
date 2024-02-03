@@ -6,7 +6,11 @@ import AmenetiesImg from "../../assets/images/residences/22073_press_111w57th_am
 import StagingImg from "../../assets/images/residences/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg";
 import CorcoramImg from "../../assets/images/residences/CH_Corcoran_111_W_57_Pent_75_NYC_153A-e1674488230929-1280x720-1675201916.jpg";
 import LightboxScreen from "../../components/LightboxScreen";
+import { useTranslation } from "react-i18next";
 function ResidencesSlide(props) {
+
+  const { i18n, t } = useTranslation();
+  
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -34,10 +38,8 @@ function ResidencesSlide(props) {
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    beforeChange: function (currentSlide, nextSlide) {
-    },
-    afterChange: function (currentSlide) {
-    },
+    beforeChange: function (currentSlide, nextSlide) {},
+    afterChange: function (currentSlide) {},
   };
   const [slideAside1, setSlideAside1] = useState(true);
   const [slideAside2, setSlideAside2] = useState(true);
@@ -48,33 +50,33 @@ function ResidencesSlide(props) {
   const slideContentList = [
     {
       id: 1,
-      title: "GREAT HALL",
-      description: `The signature Great Hall, with ceiling heights up to 14’, is a soaring space perfect for all entertaining occasions. The floor to ceiling window wall, spanning the full width of the building from east to west, offers a perfectly centered view of Central Park.`,
+      title: t("residences_slide.slide_1.title"),
+      description: t("residences_slide.slide_1.desc"),
       img: AmenetiesImg,
       slide: slideAside1,
       setSlide: setSlideAside1,
     },
     {
       id: 2,
-      title: "Master Bedroom",
+      title: t("residences_slide.slide_2.title"),
+      description: t("residences_slide.slide_2.desc"),
       img: BedroomImg,
-      description: `Master bedrooms feature floor to ceiling windows with bronze mullions and expansive, perfectly centered views of the Manhattan skyline or Central Park.`,
       slide: slideAside2,
       setSlide: setSlideAside2,
     },
     {
       id: 3,
-      title: "Kitchens",
+      title: t("residences_slide.slide_3.title"),
+      description: t("residences_slide.slide_3.desc"),
       img: StagingImg,
-      description: `Custom kitchens designed by Studio Sofield.`,
       slide: slideAside3,
       setSlide: setSlideAside3,
     },
     {
       id: 4,
-      title: "Master Bath",
+      title: t("residences_slide.slide_4.title"),
+      description: t("residences_slide.slide_4.desc"),
       img: CorcoramImg,
-      description: `Master baths feature walls and floors finished in veined white onyx, a custom antique polished free standing tub by William Holland, and custom Studio Sofield designed bronze fixtures cast by P.E. Guerin.`,
       slide: slideAside3,
       setSlide: setSlideAside3,
     },
@@ -82,11 +84,12 @@ function ResidencesSlide(props) {
       id: 5,
       title: (
         <>
-          Second Master Bath <em>(in select residences)</em>
+          {t("residences_slide.slide_5.title_1")}{" "}
+          <em> {t("residences_slide.slide_5.title_2")} </em>
         </>
       ),
+      description: t("residences_slide.slide_5.desc"),
       img: CollinMillerImg,
-      description: `Second master baths are detailed with gray onyx showers, vanity and floors with custom blackened steel and custom sconces P.E. Guerin fixtures designed by Studio Sofield.`,
       slide: slideAside3,
       setSlide: setSlideAside3,
     },
@@ -99,7 +102,10 @@ function ResidencesSlide(props) {
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
         {slideContentList.map((value, index) => {
           return (
-            <div className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row" key={value.id}>
+            <div
+              className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row"
+              key={value.id}
+            >
               <div
                 className={`${
                   value.slide ? "w-full lg:w-[420px] " : "w-[50px] short_slide "

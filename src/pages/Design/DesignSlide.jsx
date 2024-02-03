@@ -4,7 +4,9 @@ import SlideImg1 from "../../assets/images/design/111-W57th_Primary-Bedroom_030-
 import SlideImg2 from "../../assets/images/design/22073_press_111w57th_ameneties_118-1.jpg-1280x720-1674487961.png";
 import SlideImg3 from "../../assets/images/design/CH_ASH_Staging_111_W_57_NYC_031A-2-1280x720.jpg";
 import LightboxScreen from "../../components/LightboxScreen";
+import { useTranslation } from "react-i18next";
 function DesignSlide(props) {
+  const { i18n, t } = useTranslation();
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -32,10 +34,8 @@ function DesignSlide(props) {
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
-    beforeChange: function (currentSlide, nextSlide) {
-    },
-    afterChange: function (currentSlide) {
-    },
+    beforeChange: function (currentSlide, nextSlide) {},
+    afterChange: function (currentSlide) {},
   };
   const [slideAside1, setSlideAside1] = useState(true);
   const [slideAside2, setSlideAside2] = useState(true);
@@ -46,12 +46,8 @@ function DesignSlide(props) {
   const slideContentList = [
     {
       id: 1,
-      title: "MODERN MASTERS",
-      description: `111 West 57th Street will be composed of the original landmarked
-      Steinway Hall building designed in 1925 by Warren and Wetmore
-      and a new tower addition designed by SHoP Architects on the
-      adjacent site, with interior design by Studio Sofield. The
-      Result: A&nbsp;new&nbsp;landmark on the Manhattan skyline.`,
+      title: t("design_slide.slide_1.title"),
+      description: t("design_slide.slide_1.desc"),
       img: SlideImg1,
       slide: slideAside1,
       setSlide: setSlideAside1,
@@ -60,11 +56,12 @@ function DesignSlide(props) {
       id: 2,
       title: (
         <>
-          SHOP ARCHITECHTS: <br /> TODAY'S ARCHITECHTS
+          {t("design_slide.slide_2.title_1")} <br />{" "}
+          {t("design_slide.slide_2.title_2")}
         </>
       ),
       img: SlideImg2,
-      description: `SHoP Architects harness their interdisciplinary expertise to create architecture that makes our cities more vibrant, beautiful, and rewarding places for all to live. From its studios in New York’s historic Woolworth Building, the critically-acclaimed firm has a staff of 180 talented people and projects spanning four continents. At the heart of SHoP’s work is a respect for the expressive potential of traditional architectural materials, and a pioneering technological capability that transforms them into inspiring statements. At 111 West 57th Street, SHoP’s design evokes the qualities of form and craft for which the finest Manhattan skyscrapers have always been celebrated. 111 will be at once unique on the skyline and impossible to imagine rising anywhere else.`,
+      description: t("design_slide.slide_2.desc"),
       slide: slideAside2,
       setSlide: setSlideAside2,
     },
@@ -72,13 +69,12 @@ function DesignSlide(props) {
       id: 2,
       title: (
         <>
-          Studio Sofield:
-          <br />
-          Today's Interior Designer
+          {t("design_slide.slide_3.title_1")} <br />{" "}
+          {t("design_slide.slide_3.title_2")}
         </>
       ),
       img: SlideImg3,
-      description: `SHoP Architects harness their interdisciplinary expertise to create architecture that makes our cities more vibrant, beautiful, and rewarding places for all to live. From its studios in New York’s historic Woolworth Building, the critically-acclaimed firm has a staff of 180 talented people and projects spanning four continents. At the heart of SHoP’s work is a respect for the expressive potential of traditional architectural materials, and a pioneering technological capability that transforms them into inspiring statements. At 111 West 57th Street, SHoP’s design evokes the qualities of form and craft for which the finest Manhattan skyscrapers have always been celebrated. 111 will be at once unique on the skyline and impossible to imagine rising anywhere else.`,
+      description: t("design_slide.slide_3.desc"),
       slide: slideAside3,
       setSlide: setSlideAside3,
     },
@@ -92,7 +88,10 @@ function DesignSlide(props) {
       <Slider ref={sliderRef} {...settings} className="w-full h-full">
         {slideContentList.map((value, index) => {
           return (
-            <div className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row" key={value.id}>
+            <div
+              className="h-full w-full !flex flex-nowrapp flex-col-reverse lg:flex-row"
+              key={value.id}
+            >
               <div
                 className={`${
                   value.slide ? "w-full lg:w-[420px] " : "w-[50px] short_slide "
@@ -103,7 +102,6 @@ function DesignSlide(props) {
                   className={`absolute top-[50%] translate-y-[-50%]  ${
                     value.slide ? "p-[50px]" : ""
                   } w-full'}`}
-                  
                 >
                   <h3
                     className={`uppercase mb-3 text-base transition-all duration-100 ${

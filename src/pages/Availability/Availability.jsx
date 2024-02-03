@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PDF1 from "../../assets/pdf/111W57-Tower-Triplex-72-with-Loggia.pdf";
 import PDF2 from "../../assets/pdf/111W57-Tower-Residence-53.pdf";
 import AvailabilitySlider from "./AvailabilitySlider";
-
+import { useTranslation } from "react-i18next";
 import Slide1Img1 from "../../assets/images/availability/slide1/Secondary-Bathroom-1014x1100.jpg";
 import Slide1Img2 from "../../assets/images/availability/slide1/010224-111w57-12S-156-2222x1100.jpg";
 import Slide1Img3 from "../../assets/images/availability/slide1/Powder-Room-2222x1100.jpg";
@@ -11,7 +11,9 @@ import Slide1Img5 from "../../assets/images/availability/slide1/010224-111w57-12
 import Slide1Img6 from "../../assets/images/availability/slide1/010224-111w57-12S-165-2222x1100.jpg";
 import Slide1Img7 from "../../assets/images/availability/slide1/010224-111w57-12S-001-2222x1100.jpg";
 import Slide1Img8 from "../../assets/images/availability/slide1/2021-06-01-111W57-ColinMiller-0021-5758-v3-2222x1100.jpg";
+
 function Availability(props) {
+  const { i18n, t } = useTranslation();
   const table_list = [
     {
       id: 1,
@@ -233,10 +235,10 @@ function Availability(props) {
 
   const [isShow, setIsShow] = useState(false);
   const [sliderListImg, setSliderListImg] = useState([]);
-  const handleGallery = function(sliderImg){
-    setSliderListImg(sliderImg)
-    setIsShow(true)
-  }
+  const handleGallery = function (sliderImg) {
+    setSliderListImg(sliderImg);
+    setIsShow(true);
+  };
   return (
     <div>
       <div className="container_wrapper">
@@ -245,34 +247,54 @@ function Availability(props) {
             <table className="w-full h-full ">
               <caption>
                 <h2 className="text-white text-center text-[22px] mb-[30px]">
-                  Tower Residences
+                  {t("availability_title")}
                 </h2>
               </caption>
               <thead>
                 <tr style={{ borderBottom: "1px solid #d4cdc7" }}>
                   <th className="text-[13px] p-3 text-white font-normal text-center">
-                    <span className=" whitespace-nowrap"> RESIDENCE</span>
+                    <span className=" whitespace-nowrap">
+                      {" "}
+                      {t("availability_table_head.name_1")}{" "}
+                    </span>
                   </th>
                   <th className="text-[13px] p-3 text-white font-normal text-center">
-                    <span className="whitespace-nowrap">BEDROOM</span>
-                    <br /> <span className="whitespace-nowrap">/ BATHROOM</span>
+                    <span className="whitespace-nowrap">
+                      {t("availability_table_head.name_2")}
+                    </span>
+                    <br />{" "}
+                    <span className="whitespace-nowrap">
+                      / {t("availability_table_head.name_3")}
+                    </span>
                   </th>
                   <th className="text-[13px] p-3 text-white font-normal text-center">
-                    <span className="whitespace-nowrap">INTERIOR</span> <br />
+                    <span className="whitespace-nowrap">
+                      {t("availability_table_head.name_4")}
+                    </span>{" "}
+                    <br />
                     <span className="whitespace-nowrap">Sq Ft / Sq M</span>
                   </th>
                   <th className="text-[13px] p-3 text-white font-normal text-center">
-                    <span className="whitespace-nowrap">EXTERIOR</span> <br />{" "}
+                    <span className="whitespace-nowrap">
+                      {t("availability_table_head.name_5")}
+                    </span>{" "}
+                    <br />{" "}
                     <span className="whitespace-nowrap">Sq Ft / Sq M</span>
                   </th>
                   <th className="text-[13px] p-3 text-white font-normal text-center">
-                    <span className="whitespace-nowrap">EXPOSURE</span>
+                    <span className="whitespace-nowrap">
+                      {t("availability_table_head.name_6")}
+                    </span>
                   </th>
                   <th className="text-[13px] p-3 text-white font-normal text-center">
-                    <span className="whitespace-nowrap">PRICE</span>
+                    <span className="whitespace-nowrap">
+                      {t("availability_table_head.name_7")}
+                    </span>
                   </th>
                   <th className="text-[13px] p-3 text-white font-normal text-center">
-                    <span className="whitespace-nowrap">VIEW / DOWNLOAD</span>
+                    <span className="whitespace-nowrap">
+                      {t("availability_table_head.name_8")}
+                    </span>
                   </th>
                 </tr>
               </thead>
@@ -352,7 +374,7 @@ function Availability(props) {
                           onClick={() => handleGallery(value.sliderImg)}
                           className="whitespace-nowrap underline ms-3"
                         >
-                          Gallery
+                          {t("gallery")}
                         </button>
                       </td>
                     </tr>

@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-
+import { useTranslation } from "react-i18next";
 function AmenitiesInfo(props) {
+  const { i18n, t } = useTranslation();
   const [hideInfoScreen, setHideInfoScreen] = useState(false);
- 
+
   useEffect(() => {
     const handleScroll = () => {
       setHideInfoScreen(true);
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener('wheel', handleScroll);
+    window.addEventListener("wheel", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener("wheel", handleScroll);
     };
   }, []); // Empty dependency array ensures this effect runs only once after component mount
 
@@ -24,12 +25,10 @@ function AmenitiesInfo(props) {
     >
       <div className="bg-[#777776] flex justify-center items-center flex-col z-10 w-full h-full  text-white ">
         <h2 className="text-sm uppercase mb-[10px] transition-all opacity-1">
-          AMENITIES & SERVICES
+          {t("amenities_info.title")}
         </h2>
         <p className="max-w-[600px] text-[16px] sm:text-[26px] px-[30px] transition-all opacity-1 mx-auto text-[#bbb4aa] text-center leading-[32px]">
-          Designed by Studio Sofield, the amenities and services at 111 West
-          57th Street will feature the utmost in comfort, convenience, and
-          security.
+          {t("amenities_info.desc")}
         </p>
         <div className="text-center mt-5">
           <button

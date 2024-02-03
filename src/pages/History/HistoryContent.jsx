@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HistorySlide from "./HistorySlide";
+import { useTranslation } from "react-i18next";
+
 function HistoryContent(props) {
+  const { i18n, t } = useTranslation();
+
   const historyList = [
     {
       id: 1,
@@ -10,11 +14,8 @@ function HistoryContent(props) {
       img: "https://111w57.com/content/themes/111w57/assets/history/steinway-and-sons.png",
       imgWidth: 59,
       imgHeight: 155,
-      title: "STEINWAY &amp; SONS",
-      description: `Steinway &amp; Sons, an American and German piano company,
-      is founded in New York City by German immigrant Henry E.
-      Steinway in 1853. The company establishes itself as a
-      world-known and industry-leading manufacturer of pianos.`,
+      title: t("history_menu.menu_1.title"),
+      description: t("history_menu.menu_1.desc"),
       historyClass:
         "ajax-link history-item history-item--1 history-item--bottom",
       itemClass: "item-body border--left bullet",
@@ -28,16 +29,12 @@ function HistoryContent(props) {
       imgHeight: 148,
       title: (
         <>
-          THE ORIGINAL ARCHITECTS:
+          {t("history_menu.menu_2.title_1")}
           <br />
-          MASTERS OF MANHATTAN
+          {t("history_menu.menu_2.title_2")}
         </>
       ),
-      description: `The celebrated firm Warren &amp; Wetmore is founded in 1887.
-      The firm designs many of Manhattan’s most refined
-      residential and cultural buildings, from 927 Fifth Avenue to
-      Grand Central Station, and go on to design Steinway Hall in
-      1923.`,
+      description: t("history_menu.menu_2.desc"),
       historyClass: "ajax-link history-item history-item--2 history-item--top",
       itemClass: "item-body item-body--bottom border--left bullet",
     },
@@ -48,9 +45,8 @@ function HistoryContent(props) {
       img: "https://111w57.com/content/themes/111w57/assets/history/1925.png",
       imgWidth: 92,
       imgHeight: 102,
-      title: `STEINWAY HALL&nbsp;ON 57TH STREET`,
-      description: ` Steinway Hall construction begins in June 1924 and is
-      completed less than a year later, in April 1925.`,
+      title: t("history_menu.menu_3.title"),
+      description: t("history_menu.menu_3.desc"),
       historyClass: "ajax-link history-item history-item--3 history-item--top",
       itemClass: "item-body  item-body--bottom border--left bullet",
     },
@@ -61,8 +57,8 @@ function HistoryContent(props) {
       img: "https://111w57.com/content/themes/111w57/assets/history/1932.jpg",
       imgWidth: 112,
       imgHeight: 171,
-      title: `STEINWAY HALL OPENING NIGHT`,
-      description: `October 27, 1925`,
+      title: t("history_menu.menu_4.title"),
+      description: t("history_menu.menu_4.desc"),
       historyClass:
         "ajax-link history-item history-item--4 history-item--bottom",
       itemClass: "item-body border--left bullet",
@@ -74,8 +70,8 @@ function HistoryContent(props) {
       img: "https://111w57.com/content/themes/111w57/assets/history/1928-2014.png",
       imgWidth: 125,
       imgHeight: 130,
-      title: `STEINWAY HALL OPENING NIGHT`,
-      description: `October 27, 1925`,
+      title: t("history_menu.menu_5.title"),
+      description: t("history_menu.menu_5.desc"),
       historyClass: "ajax-link history-item history-item--5 history-item--top",
       itemClass: "item-body item-body--bottom",
     },
@@ -86,9 +82,8 @@ function HistoryContent(props) {
       img: "https://111w57.com/content/themes/111w57/assets/history/1995.png",
       imgWidth: 88,
       imgHeight: 98,
-      title: `LANDMARK STATUS`,
-      description: `Steinway Hall on 57th Street is&nbsp;designated a registered
-      historic and cultural landmark in 2001.`,
+      title: t("history_menu.menu_6.title"),
+      description: t("history_menu.menu_6.desc"),
       historyClass:
         "ajax-link history-item history-item--6 history-item--bottom",
       itemClass: "item-body border--left bullet z-5",
@@ -102,29 +97,25 @@ function HistoryContent(props) {
       imgHeight: 168,
       title: (
         <>
-          STEINWAY HALL—
+          {t("history_menu.menu_7.title_1")}
           <br />
-          THE NEXT CHAPTER
+          {t("history_menu.menu_7.title_2")}
         </>
       ),
-      description: `Steinway &amp; Sons sells its famous recital hall and
-      showroom to JDS Development Group and Property Markets
-      Group.`,
+      description: t("history_menu.menu_7.desc"),
       historyClass: "ajax-link history-item history-item--7 history-item--top",
       itemClass:
         "item-body item-body--bottom item-body--right border--right bullet",
     },
     {
       id: 8,
-      year: "Today",
+      year: t('today'),
       link: "/history/2019/",
       img: "https://111w57.com/content/themes/111w57/assets/history/2016.png",
       imgWidth: 92,
       imgHeight: 407,
-      title: <>111 WEST&nbsp;57TH&nbsp;STREET</>,
-      description: `The history of fine-tuning at Steinway&nbsp;Hall continues
-      today in combining the&nbsp;landmark with&nbsp;a new
-      luxurious tower.`,
+      title: t("history_menu.menu_8.title"),
+      description: t("history_menu.menu_8.desc"),
       historyClass:
         "ajax-link history-item history-item--8 history-item--bottom",
       itemClass: "item-body",
@@ -132,6 +123,7 @@ function HistoryContent(props) {
   ];
   return (
     <div>
+      <h3 className="text-center text-white pt-10 lg:mb-[-20px]">{t('title_centuries')}</h3>
       <div className="xl:hidden">
         <HistorySlide historyList={historyList}></HistorySlide>
       </div>
@@ -184,6 +176,9 @@ function HistoryContent(props) {
                       <div className="copy">
                         <h3>{value.title}</h3>
                         <p>{value.description}</p>
+                        <button className="text-white hover:text-primary-2 text-[12px]">
+                          {t("more")}
+                        </button>
                       </div>
                     </div>
                   </Link>

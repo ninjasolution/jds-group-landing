@@ -4,11 +4,11 @@ import { useCountries } from "use-react-countries";
 import { states } from "../../data/States";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
+import { useTranslation } from "react-i18next";
 function ContactForm() {
-
+  const { i18n, t } = useTranslation();
   const { countries } = useCountries();
-  const [isBroker, setIsBroker] = useState(false)
+  const [isBroker, setIsBroker] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -25,52 +25,56 @@ function ContactForm() {
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
-        .min(3, "Must be 3 characters or more")
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .min(3, t("form.placeholder.min_value"))
+        .max(20, t("form.placeholder.max_value"))
+        .required(t("form.placeholder.required")),
       lastName: Yup.string()
-        .min(3, "Must be 3 characters or more")
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
+        .min(3, t("form.placeholder.min_value"))
+        .max(20, t("form.placeholder.max_value"))
+        .required(t("form.placeholder.required")),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required(t("form.placeholder.required")),
       address: Yup.string()
-        .min(3, "Must be 3 characters or more")
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .min(3, t("form.placeholder.min_value"))
+        .max(20, t("form.placeholder.max_value"))
+        .required(t("form.placeholder.required")),
       state: Yup.string()
-        .min(3, "Must be 3 characters or more")
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .min(3, t("form.placeholder.min_value"))
+        .max(20, t("form.placeholder.max_value"))
+        .required(t("form.placeholder.required")),
       city: Yup.string()
-        .min(3, "Must be 3 characters or more")
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .min(3, t("form.placeholder.min_value"))
+        .max(20, t("form.placeholder.max_value"))
+        .required(t("form.placeholder.required")),
       zip: Yup.string()
-        .min(3, "Must be 3 characters or more")
+        .min(3, t("form.placeholder.min_value"))
         .max(6, "Must be 6 characters or less")
-        .required("Required"),
+        .required(t("form.placeholder.required")),
       phone: Yup.string()
-        .min(3, "Must be 3 characters or more")
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .min(3, t("form.placeholder.min_value"))
+        .max(20, t("form.placeholder.max_value"))
+        .required(t("form.placeholder.required")),
       referral: Yup.string()
-        .min(3, "Must be 3 characters or more")
-        .max(20, "Must be 20 characters or less")
-        .required("Required"),
+        .min(3, t("form.placeholder.min_value"))
+        .max(20, t("form.placeholder.max_value"))
+        .required(t("form.placeholder.required")),
     }),
   });
 
   return (
     <form action="" className="w-full xl:max-w-[600px] mx-auto p-8 text-white">
-      <h3 className="text-center text-white">REGISTER</h3>
-      <p className="text-[13px] mt-5 text-center mb-2">*Required fields</p>
+      <h3 className="text-center text-white">{t("form.name.register")}</h3>
+      <p className="text-[13px] mt-5 text-center mb-2">
+        {t("form.name.required_fields")}
+      </p>
       <div className="input_group">
         <input
           type="text"
           name="firstName"
           {...formik.getFieldProps("firstName")}
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder="FIRST NAME*"
+          placeholder={t("form.placeholder.first_name")}
         />
         {formik.touched.firstName && formik.errors.firstName && (
           <div className="min-h-[36px] text-sm text-[#ff0000]">
@@ -85,7 +89,7 @@ function ContactForm() {
           name="lastName"
           {...formik.getFieldProps("lastName")}
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder="LAST NAME*"
+          placeholder={t("form.placeholder.last_name")}
         />
         {formik.touched.lastName && formik.errors.lastName && (
           <div className="min-h-[36px] text-sm text-[#ff0000]">
@@ -100,7 +104,7 @@ function ContactForm() {
           name="address"
           {...formik.getFieldProps("address")}
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder="ADDRESS"
+          placeholder={t("form.placeholder.address")}
         />
         {formik.touched.address && formik.errors.address && (
           <div className="min-h-[36px] text-sm text-[#ff0000]">
@@ -113,7 +117,7 @@ function ContactForm() {
         <div className="custom_select">
           <Select
             {...formik.getFieldProps("state")}
-            label="STATE"
+            label={t("form.placeholder.state")}
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9 !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
             {states.map((state) => (
@@ -135,7 +139,7 @@ function ContactForm() {
             {...formik.getFieldProps("city")}
             name="city"
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-            placeholder="CITY"
+            placeholder={t("form.placeholder.city")}
           />
           {formik.touched.city && formik.errors.city && (
             <div className="min-h-[36px] text-sm text-[#ff0000]">
@@ -149,13 +153,13 @@ function ContactForm() {
             {...formik.getFieldProps("zip")}
             name="zip"
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-            placeholder="ZIP"
+            placeholder={t("form.placeholder.zip")}
           />
-           {formik.touched.zip && formik.errors.zip && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
-            {formik.errors.zip}
-          </div>
-        )}
+          {formik.touched.zip && formik.errors.zip && (
+            <div className="min-h-[36px] text-sm text-[#ff0000]">
+              {formik.errors.zip}
+            </div>
+          )}
         </div>
       </div>
 
@@ -163,7 +167,7 @@ function ContactForm() {
         <div className="custom_select">
           <Select
             {...formik.getFieldProps("country")}
-            label="Select Country"
+            label={t("form.placeholder.country")}
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
             selected={(element) =>
               element &&
@@ -190,10 +194,10 @@ function ContactForm() {
             ))}
           </Select>
           {formik.touched.country && formik.errors.country && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
-            {formik.errors.country}
-          </div>
-        )}
+            <div className="min-h-[36px] text-sm text-[#ff0000]">
+              {formik.errors.country}
+            </div>
+          )}
         </div>
       </div>
 
@@ -203,9 +207,9 @@ function ContactForm() {
           type="email"
           name="email"
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder="E-MAIL*"
+          placeholder={t("form.placeholder.email")}
         />
-         {formik.touched.email && formik.errors.email && (
+        {formik.touched.email && formik.errors.email && (
           <div className="min-h-[36px] text-sm text-[#ff0000]">
             {formik.errors.email}
           </div>
@@ -217,9 +221,9 @@ function ContactForm() {
           type="number"
           name="phone"
           className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder="CONTACT NUMBER*"
+          placeholder={t("form.placeholder.number")}
         />
-         {formik.touched.phone && formik.errors.phone && (
+        {formik.touched.phone && formik.errors.phone && (
           <div className="min-h-[36px] text-sm text-[#ff0000]">
             {formik.errors.phone}
           </div>
@@ -229,7 +233,7 @@ function ContactForm() {
         <div className="custom_select">
           <Select
             required
-            label="HOW DID YOU HEAR ABOUT US?"
+            label={t("form.placeholder.hear_about")}
             {...formik.getFieldProps("referral")}
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9  !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
@@ -252,18 +256,18 @@ function ContactForm() {
       </div>
       <div className="input_group">
         <div className="flex items-center justify-between">
-          <span className="text-sm">Are you a broker?</span>
+          <span className="text-sm">{t("form.name.broker")}</span>
           <div className="flex items-center">
             <div className="mx-3">
               <input type="radio" name="broker" id="broker_yes" />
               <label htmlFor="broker_yes" className="text-sm ms-1">
-                Yes
+                {t("form.name.yes")}
               </label>
             </div>
             <div className="">
               <input type="radio" name="broker" id="broker_no" />
               <label htmlFor="broker_no" className="text-sm ms-1">
-                No
+                {t("form.name.no")}
               </label>
             </div>
           </div>
@@ -271,7 +275,7 @@ function ContactForm() {
       </div>
       <div className="input_group text-center mt-6 ">
         <button className="inline-block p-[8px_20px] transition-colors text-sm bg-white hover:bg-primary-2 text-black hover:text-white">
-          SUBMIT
+          {t("form.name.submit")}
         </button>
       </div>
     </form>

@@ -81,7 +81,7 @@ function HistoryComp({
 
   return (
     <div>
-      <div className="container_wrapper h-[75vh] relative bg-[#EFEFEF]">
+      <div className="container_wrapper h-[110vh] sm:h-[100vh] md:h-[75vh] relative bg-[#EFEFEF]">
         {/* =============Slide Content */}
 
         <div className="w-full h-full full_screen_slider">

@@ -40,8 +40,8 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
       ref={navigationRef}
       className={`overlay ${toggle ? "show_nav" : ""}`}
     >
-      <div className="menu-main-navigation-container">
-        <ul id="menu-main-navigation" className="menu">
+      <div className="menu-main-navigation-container overflow-hidden my-3">
+        <ul id="menu-main-navigation" className="menu h-full justify-center items-center flex flex-col overflow-auto">
           {NavbarList.map((value, index) => {
             return (
               <li
@@ -53,7 +53,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 }`}
               >
                 <Link to={value.link} onClick={()=> setToggle(false)} className={`ajaxified`} style={{color: location.pathname.includes(value.link) ? 'white' : ""}}>
-                {t(`${value.name}`)}
+                {t(value.name.toLowerCase())}
                 </Link>
               </li>
             );

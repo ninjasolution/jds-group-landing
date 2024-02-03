@@ -61,10 +61,13 @@ function HistorySlide({ historyList }) {
                 key={value.id}
                 className="!flex items-center justify-center flex-col w-full h-full"
               >
-                <button onClick={()=> {
-                  setMainSlideIndex(index);
-                  setYearSlideIndex(index)
-                }} className="text-lg md:text-2xl text-white text-center p-3">
+                <button
+                  onClick={() => {
+                    setMainSlideIndex(index);
+                    setYearSlideIndex(index);
+                  }}
+                  className="text-lg md:text-2xl text-white text-center p-3"
+                >
                   {value.year}
                 </button>
               </div>
@@ -96,8 +99,9 @@ function HistorySlide({ historyList }) {
                     data-ll-status="loaded"
                   />
 
-                  <div className="copy p-5">
-                    <h3 className="text-base text-white">{value.title}</h3>
+                  <div className="copy p-5 text-center">
+                    <h3 className="text-base text-white mb-2">{value.title}</h3>
+                    <button className="text-white">More</button>
                   </div>
                 </Link>
               </div>

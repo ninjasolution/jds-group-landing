@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PDF1 from "../../assets/pdf/111W57-Tower-Triplex-72-with-Loggia.pdf";
 import PDF2 from "../../assets/pdf/111W57-Tower-Residence-53.pdf";
+import AvailabilitySlider from "./AvailabilitySlider";
+
+import Slide1Img1 from "../../assets/images/availability/slide1/Secondary-Bathroom-1014x1100.jpg";
+import Slide1Img2 from "../../assets/images/availability/slide1/010224-111w57-12S-156-2222x1100.jpg";
+import Slide1Img3 from "../../assets/images/availability/slide1/Powder-Room-2222x1100.jpg";
+import Slide1Img4 from "../../assets/images/availability/slide1/LM-PH-Silverian-Pearl-Bath.jpg";
+import Slide1Img5 from "../../assets/images/availability/slide1/010224-111w57-12S-222-2222x1100.jpg";
+import Slide1Img6 from "../../assets/images/availability/slide1/010224-111w57-12S-165-2222x1100.jpg";
+import Slide1Img7 from "../../assets/images/availability/slide1/010224-111w57-12S-001-2222x1100.jpg";
+import Slide1Img8 from "../../assets/images/availability/slide1/2021-06-01-111W57-ColinMiller-0021-5758-v3-2222x1100.jpg";
 function Availability(props) {
   const table_list = [
     {
@@ -16,6 +26,16 @@ function Availability(props) {
           Floor Plan
         </a>
       ),
+      sliderImg: [
+        Slide1Img1,
+        Slide1Img2,
+        Slide1Img3,
+        Slide1Img4,
+        Slide1Img5,
+        Slide1Img6,
+        Slide1Img7,
+        Slide1Img8,
+      ],
     },
     {
       id: 2,
@@ -130,6 +150,13 @@ function Availability(props) {
       ),
     },
   ];
+
+  const [isShow, setIsShow] = useState(false);
+  const [sliderListImg, setSliderListImg] = useState([]);
+  const handleGallery = function(sliderImg){
+    setSliderListImg(sliderImg)
+    setIsShow(true)
+  }
   return (
     <div>
       <div className="container_wrapper">
@@ -182,7 +209,9 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          <span className="whitespace-nowrap">{value.residence}</span>
+                          <span className="whitespace-nowrap">
+                            {value.residence}
+                          </span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -190,7 +219,9 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          <span className="whitespace-nowrap">{value.bedroon}</span>
+                          <span className="whitespace-nowrap">
+                            {value.bedroon}
+                          </span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -198,7 +229,9 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          <span className="whitespace-nowrap">{value.interior}</span>
+                          <span className="whitespace-nowrap">
+                            {value.interior}
+                          </span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -206,7 +239,9 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          <span className="whitespace-nowrap">{value.exterior}</span>
+                          <span className="whitespace-nowrap">
+                            {value.exterior}
+                          </span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -214,7 +249,9 @@ function Availability(props) {
                           className=" py-[10px]"
                           style={{ borderRight: "1px dotted #d4cdc7" }}
                         >
-                          <span className="whitespace-nowrap">{value.exposure}</span>
+                          <span className="whitespace-nowrap">
+                            {value.exposure}
+                          </span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
@@ -224,12 +261,17 @@ function Availability(props) {
                             borderRight: value.view ? "1px dotted #d4cdc7" : "",
                           }}
                         >
-                          <span className="whitespace-nowrap">{value.price}</span>
+                          <span className="whitespace-nowrap">
+                            {value.price}
+                          </span>
                         </div>
                       </td>
                       <td className="text-center text-lg py-5">
                         <span className="whitespace-nowrap">{value.view}</span>
-                        <button className="whitespace-nowrap underline ms-3">
+                        <button
+                          onClick={() => handleGallery(value.sliderImg)}
+                          className="whitespace-nowrap underline ms-3"
+                        >
                           Gallery
                         </button>
                       </td>
@@ -241,6 +283,12 @@ function Availability(props) {
           </div>
         </div>
       </div>
+
+      <AvailabilitySlider
+        isShow={isShow}
+        setIsShow={setIsShow}
+        sliderListImg={sliderListImg}
+      ></AvailabilitySlider>
     </div>
   );
 }

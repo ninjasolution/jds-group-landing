@@ -3,6 +3,7 @@ import PymbleRoad from "../../assets/icons/PymbleRoad.svg";
 import TeleLogo from "../../assets/icons/TeleLogo.svg";
 import Navigation from "./Navigation";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import {
   Navbar,
@@ -29,34 +30,41 @@ import {
   PowerIcon,
   RocketLaunchIcon,
   Bars2Icon,
+  XMarkIcon,
 } from "@heroicons/react/24/solid";
 
 function HeaderNavbar(props) {
   const [toggle, setToggle] = useState(false);
   const hamburger_btn_ref = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { i18n, t } = useTranslation();
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const handleMenuItem = function (value) {
+    console.log(value);
+    i18n.changeLanguage(value);
+
+    setIsMenuOpen(false);
+  };
   // profile menu component
   const languageList = [
     {
-      label: "ES",
+      label: "en",
       icon: UserCircleIcon,
     },
     {
-      label: "DE",
+      label: "de",
       icon: Cog6ToothIcon,
     },
     {
-      label: "RU",
+      label: "ru",
       icon: InboxArrowDownIcon,
     },
     {
-      label: "ZH",
+      label: "zh",
       icon: LifebuoyIcon,
     },
     {
-      label: "AR",
+      label: "ar",
       icon: PowerIcon,
     },
   ];
@@ -79,18 +87,29 @@ function HeaderNavbar(props) {
               <Button
                 variant="text"
                 color="blue-gray"
-                className="text_primary text-sm m-0 p-0 font-normal"
+                className="text_primary text-sm m-0 p-0 font-normal !border-none !outline-none !shadow-none"
               >
-                LANGUAGES
+                SELECT LANGUAGE
               </Button>
             </MenuHandler>
             <MenuList className="p-1 custom_dropdown_list">
+              <MenuItem
+                onClick={() => setIsMenuOpen(false)}
+                className={`flex items-center gap-2 rounded`}
+              >
+                {React.createElement(XMarkIcon, {
+                  className: `h-4 w-4`,
+                  strokeWidth: 2,
+                })}
+              </MenuItem>
+
               {languageList.map(({ label, icon }, key) => {
                 // const isLastItem = key === languageList.length - 1;
                 return (
                   <MenuItem
-                    key={label}
-                    onClick={closeMenu}
+                    key={key}
+                    data-name={label}
+                    onClick={() => handleMenuItem(label)}
                     className={`flex items-center gap-2 rounded`}
                   >
                     {React.createElement(icon, {
@@ -100,7 +119,7 @@ function HeaderNavbar(props) {
                     <Typography
                       as="span"
                       variant="small"
-                      className="font-normal"
+                      className="font-normal uppercase"
                     >
                       {label}
                     </Typography>
@@ -131,9 +150,9 @@ function HeaderNavbar(props) {
             </div>
             <a
               href="javascript:void(0)"
-              className="text_primary hover:text-[#9D9588]"
+              className="text_primary hover:text-[#9D9588] uppercase"
             >
-              {toggle ? "CLOSE" : "MENU"}
+              {toggle ? t("menu.close") : t("menu.show")}
             </a>
           </div>
           <img

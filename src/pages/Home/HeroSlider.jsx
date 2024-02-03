@@ -6,7 +6,11 @@ import SliderImg3 from "../../assets/images/home/3.jpeg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LightboxScreen from "../../components/LightboxScreen";
+import { useTranslation } from "react-i18next";
+
 function HeroSlider(props) {
+  const { i18n, t } = useTranslation();
+
   const settings = {
     dots: false,
     fade: true,
@@ -27,20 +31,12 @@ function HeroSlider(props) {
           <div className="relative">
             <div className="bg-[#8e8f90cc] transition transition-color duration-500 hover:bg-[#8e8f90] absolute bottom-8 z-[10] start-10 end-10 px-[25px] pb-[25px] text-center flex jusitfy-center items-center flex-col">
               <h2 className="pt-[40px] text-white text-[22px] uppercase">
-                The Classic Modern Terrace
+                {t("heroText")}
               </h2>
-              <p className="text-[#bbb4aa] text-base">
-                Exclusive Residences for The Exclusive Street
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Pymble's Exclusive New Residences
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Expansive Living and Gardens
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Via Private Lifts and 24/7 Security
-              </p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText1")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText2")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText3")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText4")}</p>
             </div>
             <button
               onClick={() => {
@@ -75,20 +71,12 @@ function HeroSlider(props) {
           <div className="relative">
             <div className="bg-[#8e8f90cc] transition transition-color duration-500 hover:bg-[#8e8f90] absolute bottom-8 z-[10] start-10 end-10 px-[25px] pb-[25px] text-center flex jusitfy-center items-center flex-col">
               <h2 className="pt-[40px] text-white text-[22px] uppercase">
-                The Classic Modern Terrace
+                {t("heroText")}
               </h2>
-              <p className="text-[#bbb4aa] text-base">
-                Exclusive Residences for The Exclusive Street
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Pymble's Exclusive New Residences
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Expansive Living and Gardens
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Via Private Lifts and 24/7 Security
-              </p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText1")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText2")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText3")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText4")}</p>
             </div>
             <button
               onClick={() => {
@@ -124,20 +112,12 @@ function HeroSlider(props) {
           <div className="relative">
             <div className="bg-[#8e8f90cc] transition transition-color duration-500 hover:bg-[#8e8f90] absolute bottom-8 z-[10] start-10 end-10 px-[25px] pb-[25px] text-center flex jusitfy-center items-center flex-col">
               <h2 className="pt-[40px] text-white text-[22px] uppercase">
-                The Classic Modern Terrace
+                {t("heroText")}
               </h2>
-              <p className="text-[#bbb4aa] text-base">
-                Exclusive Residences for The Exclusive Street
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Pymble's Exclusive New Residences
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Expansive Living and Gardens
-              </p>
-              <p className="text-[#bbb4aa] text-base">
-                Via Private Lifts and 24/7 Security
-              </p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText1")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText2")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText3")}</p>
+              <p className="text-[#bbb4aa] text-base">{t("heroText4")}</p>
             </div>
             <button
               onClick={() => {

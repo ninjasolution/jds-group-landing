@@ -229,6 +229,9 @@ function Availability(props) {
                       </td>
                       <td className="text-center text-lg py-5">
                         <span className="whitespace-nowrap">{value.view}</span>
+                        <button className="whitespace-nowrap underline ms-3">
+                          Gallery
+                        </button>
                       </td>
                     </tr>
                   );

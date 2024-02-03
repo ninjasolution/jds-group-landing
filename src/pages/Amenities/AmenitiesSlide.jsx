@@ -4,7 +4,9 @@ import PrivatePorteImg from "../../assets/images/amenities/amenities-3-e16716349
 import ArrivalImg from "../../assets/images/amenities/amenities-4-1280x720-1675200088.jpg";
 import PoolImg from "../../assets/images/amenities/22073_press_111w57_ameneties0003-1-scaled-1280x720-1675200288.jpg";
 import TerraceImg from "../../assets/images/amenities/111-terrace-1280x720.jpg";
+import LoungesImg from '../../assets/images/amenities/22073_press_111w57_ameneties0352-1280x720-1675200658.jpg'
 import LightboxScreen from "../../components/LightboxScreen";
+
 function AmenitiesSlide(props) {
   const sliderRef = useRef(null);
 
@@ -71,9 +73,9 @@ function AmenitiesSlide(props) {
     },
     {
       id: 4,
-      title: "The Pool",
-      img: PoolImg,
-      description: `A beautiful and serene 82’ lap pool features double-height vaulted ceilings, alcove cabanas and lounge seating throughout, and custom ornate wall sconces.`,
+      title: "LOUNGES & ENTERTAINING",
+      img: LoungesImg,
+      description: `The expansive lounge suite presents grand and formal spaces for entertaining, repose and wellness. The award-winning Studio Sofield design encourages discovery through each room.`,
       slide: slideAside4,
       setSlide: setSlideAside4,
     },

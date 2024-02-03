@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { NavbarList } from "../../data/NavbarList";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
   const navigationRef = useRef(null);
+  const { i18n, t } = useTranslation();
 
   const location = useLocation();
 
@@ -51,7 +53,7 @@ function Navigation({ toggle, setToggle, hamburger_btn_ref }) {
                 }`}
               >
                 <Link to={value.link} onClick={()=> setToggle(false)} className={`ajaxified`} style={{color: location.pathname.includes(value.link) ? 'white' : ""}}>
-                  {value.name}
+                {t(`${value.name}`)}
                 </Link>
               </li>
             );

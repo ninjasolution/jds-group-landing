@@ -1,0 +1,24 @@
+{
+    "heroText": "经典现代露台",
+    "heroText1": "Pymble的独家新住宅",
+    "heroText2": "Pymble的独家新住宅",
+    "heroText3": "宽敞的生活和花园",
+    "heroText4": "通过私人电梯和24/7安全",
+    "menu": {
+        "show": "显示菜单",
+        "close": "关闭"
+    },
+    "menuList": {
+        "history": "历史",
+        "design": "设计",
+        "residences": "住宅",
+        "views": "观点",
+        "availability": "可用性",
+        "amenities": "设施",
+        "neighborhood": "邻里",
+        "team": "团队",
+        "legal": "法律",
+        "contact": "联系",
+        "press": "新闻"
+    }
+}

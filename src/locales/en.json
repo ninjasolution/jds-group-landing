@@ -1,0 +1,22 @@
+{
+    "heroText": "THE CLASSIC MODERN TERRACE",
+    "heroText1": "Exclusive Residences for The Exclusive Street",
+    "heroText2": "Pymble's Exclusive New Residences",
+    "heroText3": "Expansive Living and Gardens",
+    "heroText4": "Via Private Lifts and 24/7 Security",
+    "menu": {
+        "show": "Menu",
+        "close": "Close"
+    },
+    "history": "History",
+    "design": "Design",
+    "residences": "Residences",
+    "views": "Views",
+    "availability": "Availability",
+    "amenities": "Amenities",
+    "neighborhood": "Neighborhood",
+    "team": "Team",
+    "legal": "Legal",
+    "contact": "Contact",
+    "press": "Press"
+}

@@ -184,17 +184,24 @@ body {
 
 }
 
-.custom_dropdown_list {
-    background: rgb(114, 114, 114);
-    border: none;
-    border-radius: 0;
-
-    button {
-        color: #fff;
-        // background: transparent !important;
-
-
+[data-floating-ui-portal] {
+    .custom_dropdown_list {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        display: flex;
+        margin-top: -29px;
+        margin-left: -137px;
+        box-shadow: none;
+        button {
+            color: #9D9588;
+            padding-top: 0;
+            padding-bottom: 0;
+            box-shadow: 0;
+            // background: transparent !important;
+        }
     }
+
 }
 
 .arrow_btn {

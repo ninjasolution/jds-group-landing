@@ -1,0 +1,24 @@
+{
+    "heroText": "Die klassische moderne Terrasse",
+    "heroText1": "Exklusive Residenzen für die exklusive Straße",
+    "heroText2": "Exklusive neue Residenzen in Pymble",
+    "heroText3": "Weites Wohnen und Gärten",
+    "heroText4": "Via private Aufzüge und 24/7 Sicherheit",
+    "menu": {
+        "show": "Menü anzeigen",
+        "close": "Schließen"
+    },
+    "menuList": {
+        "history": "Geschichte",
+        "design": "Design",
+        "residences": "Wohnungen",
+        "views": "Ansichten",
+        "availability": "Verfügbarkeit",
+        "amenities": "Annehmlichkeiten",
+        "neighborhood": "Nachbarschaft",
+        "team": "Team",
+        "legal": "Rechtlich",
+        "contact": "Kontakt",
+        "press": "Presse"
+    }
+}

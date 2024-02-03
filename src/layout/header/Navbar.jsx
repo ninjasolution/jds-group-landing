@@ -40,7 +40,6 @@ function HeaderNavbar(props) {
   const { i18n, t } = useTranslation();
 
   const handleMenuItem = function (value) {
-    console.log(value);
     i18n.changeLanguage(value);
 
     setIsMenuOpen(false);

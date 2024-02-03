@@ -9,7 +9,7 @@ import LightboxScreen from "../../components/LightboxScreen";
 import { useTranslation } from "react-i18next";
 
 function HeroSlider(props) {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
 
   const settings = {
     dots: false,

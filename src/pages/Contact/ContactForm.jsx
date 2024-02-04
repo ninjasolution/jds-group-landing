@@ -132,7 +132,7 @@ function ContactForm() {
         )}
       </div>
 
-      <div className="flex items-center">
+      <div className="flex">
         <div className="input_group flex-1">
           <input
             type="text"

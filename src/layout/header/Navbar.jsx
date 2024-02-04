@@ -151,7 +151,7 @@ function HeaderNavbar(props) {
               <div className="hamburger-inner" />
             </div>
             <a
-              href="javascript:void(0)"
+              href="#"
               className="text_primary hover:text-[#9D9588] uppercase"
             >
               {toggle ? t("menu.close") : t("menu.show")}

@@ -68,7 +68,7 @@ function ContactForm() {
       <p className="text-[13px] mt-5 text-center mb-2">
         {t("form.name.required_fields")}
       </p>
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <input
           type="text"
           name="firstName"
@@ -77,13 +77,13 @@ function ContactForm() {
           placeholder={t("form.placeholder.first_name")}
         />
         {formik.touched.firstName && formik.errors.firstName && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
+          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
             {formik.errors.firstName}
           </div>
         )}
       </div>
 
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <input
           type="text"
           name="lastName"
@@ -92,13 +92,13 @@ function ContactForm() {
           placeholder={t("form.placeholder.last_name")}
         />
         {formik.touched.lastName && formik.errors.lastName && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
+          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
             {formik.errors.lastName}
           </div>
         )}
       </div>
 
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <input
           type="text"
           name="address"
@@ -107,13 +107,13 @@ function ContactForm() {
           placeholder={t("form.placeholder.address")}
         />
         {formik.touched.address && formik.errors.address && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
+          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
             {formik.errors.address}
           </div>
         )}
       </div>
 
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <div className="custom_select">
           <Select
             {...formik.getFieldProps("state")}
@@ -126,14 +126,14 @@ function ContactForm() {
           </Select>
         </div>
         {formik.touched.state && formik.errors.state && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
+          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
             {formik.errors.state}
           </div>
         )}
       </div>
 
       <div className="flex">
-        <div className="input_group flex-1">
+        <div className="input_group mb-5 relative flex-1">
           <input
             type="text"
             {...formik.getFieldProps("city")}
@@ -142,12 +142,12 @@ function ContactForm() {
             placeholder={t("form.placeholder.city")}
           />
           {formik.touched.city && formik.errors.city && (
-            <div className="min-h-[36px] text-sm text-[#ff0000]">
+            <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
               {formik.errors.city}
             </div>
           )}
         </div>
-        <div className="input_group w-[130px]">
+        <div className="input_group mb-5 relative w-[130px]">
           <input
             type="text"
             {...formik.getFieldProps("zip")}
@@ -156,14 +156,14 @@ function ContactForm() {
             placeholder={t("form.placeholder.zip")}
           />
           {formik.touched.zip && formik.errors.zip && (
-            <div className="min-h-[36px] text-sm text-[#ff0000]">
+            <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
               {formik.errors.zip}
             </div>
           )}
         </div>
       </div>
 
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <div className="custom_select">
           <Select
             {...formik.getFieldProps("country")}
@@ -194,14 +194,14 @@ function ContactForm() {
             ))}
           </Select>
           {formik.touched.country && formik.errors.country && (
-            <div className="min-h-[36px] text-sm text-[#ff0000]">
+            <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
               {formik.errors.country}
             </div>
           )}
         </div>
       </div>
 
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <input
           {...formik.getFieldProps("email")}
           type="email"
@@ -210,12 +210,12 @@ function ContactForm() {
           placeholder={t("form.placeholder.email")}
         />
         {formik.touched.email && formik.errors.email && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
+          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
             {formik.errors.email}
           </div>
         )}
       </div>
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <input
           {...formik.getFieldProps("phone")}
           type="number"
@@ -224,12 +224,12 @@ function ContactForm() {
           placeholder={t("form.placeholder.number")}
         />
         {formik.touched.phone && formik.errors.phone && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
+          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
             {formik.errors.phone}
           </div>
         )}
       </div>
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <div className="custom_select">
           <Select
             required
@@ -249,12 +249,12 @@ function ContactForm() {
           </Select>
         </div>
         {formik.touched.referral && formik.errors.referral && (
-          <div className="min-h-[36px] text-sm text-[#ff0000]">
+          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
             {formik.errors.referral}
           </div>
         )}
       </div>
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <div className="flex items-center justify-between">
           <span className="text-sm">{t("form.name.broker")}</span>
           <div className="flex items-center">
@@ -273,7 +273,7 @@ function ContactForm() {
           </div>
         </div>
       </div>
-      <div className="input_group text-center mt-6 ">
+      <div className="input_group mb-5 relative text-center mt-6 ">
         <button className="inline-block p-[8px_20px] transition-colors text-sm bg-white hover:bg-primary-2 text-black hover:text-white">
           {t("form.name.submit")}
         </button>

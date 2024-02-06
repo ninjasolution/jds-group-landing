@@ -220,7 +220,7 @@ function ContactForm() {
         )}
       </div>
 
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <input
           {...formik.getFieldProps("phone")}
           type="number"
@@ -235,7 +235,7 @@ function ContactForm() {
         )}
       </div>
 
-      <div className="input_group">
+      <div className="input_group mb-5 relative">
         <div className="custom_select">
           <Select
             label={t("form.placeholder.hear_about")}

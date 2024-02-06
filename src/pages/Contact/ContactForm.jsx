@@ -5,6 +5,9 @@ import { states } from "../../data/States";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
+
+const referrals = ["CURBED.COM", "EBLAST", "EVENTS", "NEWSPAPERS/MEGAZINE", "NY TIMES.COM", "ONLINE SEARCH", "REAL DEAL", "REFERRAL", "SITE SIGNAGE"]
+
 function ContactForm() {
   const { i18n, t } = useTranslation();
   const { countries } = useCountries();
@@ -40,30 +43,29 @@ function ContactForm() {
         .max(20, t("form.placeholder.max_value"))
         .required(t("form.placeholder.required")),
       state: Yup.string()
-        .min(3, t("form.placeholder.min_value"))
-        .max(20, t("form.placeholder.max_value"))
         .required(t("form.placeholder.required")),
       city: Yup.string()
-        .min(3, t("form.placeholder.min_value"))
-        .max(20, t("form.placeholder.max_value"))
         .required(t("form.placeholder.required")),
       zip: Yup.string()
-        .min(3, t("form.placeholder.min_value"))
-        .max(6, "Must be 6 characters or less")
         .required(t("form.placeholder.required")),
       phone: Yup.string()
         .min(3, t("form.placeholder.min_value"))
         .max(20, t("form.placeholder.max_value"))
         .required(t("form.placeholder.required")),
       referral: Yup.string()
-        .min(3, t("form.placeholder.min_value"))
-        .max(20, t("form.placeholder.max_value"))
         .required(t("form.placeholder.required")),
     }),
   });
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if(formik.isValid) {
+      console.log(isBroker)
+    }
+  }
+
   return (
-    <form action="" className="w-full xl:max-w-[600px] mx-auto p-8 text-white">
+    <form onSubmit={submitHandler} className="w-full xl:max-w-[600px] mx-auto p-8 text-white">
       <h3 className="text-center text-white">{t("form.name.register")}</h3>
       <p className="text-[13px] mt-5 text-center mb-2">
         {t("form.name.required_fields")}
@@ -118,10 +120,11 @@ function ContactForm() {
           <Select
             {...formik.getFieldProps("state")}
             label={t("form.placeholder.state")}
+            onChange={value => {formik.setValues({...formik.values, state: value})}}
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9 !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
             {states.map((state) => (
-              <Option key={state}>{state}</Option>
+              <Option value={state} key={state}>{state}</Option>
             ))}
           </Select>
         </div>
@@ -169,6 +172,7 @@ function ContactForm() {
             {...formik.getFieldProps("country")}
             label={t("form.placeholder.country")}
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
+            onChange={value => {formik.setValues({...formik.values, country: value})}}
             selected={(element) =>
               element &&
               React.cloneElement(element, {
@@ -215,7 +219,8 @@ function ContactForm() {
           </div>
         )}
       </div>
-      <div className="input_group mb-5 relative">
+
+      <div className="input_group">
         <input
           {...formik.getFieldProps("phone")}
           type="number"
@@ -229,23 +234,20 @@ function ContactForm() {
           </div>
         )}
       </div>
-      <div className="input_group mb-5 relative">
+
+      <div className="input_group">
         <div className="custom_select">
           <Select
-            required
             label={t("form.placeholder.hear_about")}
             {...formik.getFieldProps("referral")}
+            onChange={value => formik.setValues({...formik.values, referral: value})}
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9  !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
-            <Option>CURBED.COM</Option>
-            <Option>EBLAST</Option>
-            <Option>EVENTS</Option>
-            <Option>NEWSPAPERS/MEGAZINE</Option>
-            <Option>NY TIMES.COM</Option>
-            <Option>ONLINE SEARCH</Option>
-            <Option>REAL DEAL</Option>
-            <Option>REFERRAL</Option>
-            <Option>SITE SIGNAGE</Option>
+            {
+              referrals.map((item, key) => (
+                <Option key={key} value={item}>{item}</Option>
+              ))
+            }
           </Select>
         </div>
         {formik.touched.referral && formik.errors.referral && (
@@ -259,13 +261,13 @@ function ContactForm() {
           <span className="text-sm">{t("form.name.broker")}</span>
           <div className="flex items-center">
             <div className="mx-3">
-              <input type="radio" name="broker" id="broker_yes" />
+              <input type="radio" onClick={() => setIsBroker(true)} name="broker" value="broker_yes" />
               <label htmlFor="broker_yes" className="text-sm ms-1">
                 {t("form.name.yes")}
               </label>
             </div>
             <div className="">
-              <input type="radio" name="broker" id="broker_no" />
+              <input defaultChecked={true} type="radio" onClick={(e) => setIsBroker(false)} name="broker" value="broker_no" />
               <label htmlFor="broker_no" className="text-sm ms-1">
                 {t("form.name.no")}
               </label>

@@ -17,6 +17,7 @@ import {
   Avatar,
   Card,
   IconButton,
+  Tooltip,
 } from "@material-tailwind/react";
 import {
   CubeTransparentIcon,
@@ -38,12 +39,12 @@ function HeaderNavbar(props) {
   const hamburger_btn_ref = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { i18n, t } = useTranslation();
-  const [language, setLanguage] = useState("SELECT LANGUAGE");
+  const [language, setLanguage] = useState("EN");
   const [langActive, setLangActive] = useState(false);
   const handleMenuItem = function (value) {
     i18n.changeLanguage(value);
-    setLanguage(value)
-    setLangActive(true) // language active true
+    setLanguage(value);
+    setLangActive(true); // language active true
     setIsMenuOpen(false);
   };
   // profile menu component
@@ -70,7 +71,6 @@ function HeaderNavbar(props) {
     },
   ];
 
-
   return (
     <div className="flex justify-between items-end w-100 px-2 lg:px-0">
       <img className="hidden lg:block" src={PymbleRoad} alt="img" />
@@ -91,10 +91,17 @@ function HeaderNavbar(props) {
                 color="blue-gray"
                 className="text_primary text-sm m-0 p-0 font-normal !border-none !outline-none !shadow-none"
               >
-                {language}
+                <Tooltip
+                  className="bg-primary"
+                  content={<div className="text-white">SELECT LANGUAGE</div>}
+                >
+                  {language}
+                </Tooltip>
               </Button>
             </MenuHandler>
-            <MenuList className={`p-1 custom_dropdown_list ${langActive ? 'active_lang': ''}`}>
+            <MenuList
+              className={`p-1 custom_dropdown_list active_lang`}
+            >
               <MenuItem
                 onClick={() => setIsMenuOpen(false)}
                 className={`flex items-center gap-2 rounded`}
@@ -136,7 +143,7 @@ function HeaderNavbar(props) {
             to={"/contact"}
             className="text_primary text-sm hover:underline uppercase"
           >
-            {t('contact')}
+            {t("contact")}
           </Link>
         </li>
         <li className="text_primary min-w-[25px] text-end">
@@ -150,10 +157,7 @@ function HeaderNavbar(props) {
             <div className="hamburger-box me-[10px]">
               <div className="hamburger-inner" />
             </div>
-            <a
-              href="#"
-              className="text_primary hover:text-[#9D9588] uppercase"
-            >
+            <a href="#" className="text_primary hover:text-[#9D9588] uppercase">
               {toggle ? t("menu.close") : t("menu.show")}
             </a>
           </div>

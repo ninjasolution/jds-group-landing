@@ -98,8 +98,7 @@ function HistoryComp({
                       value.slide
                         ? "w-full lg:w-[420px] "
                         : "w-[50px] short_slide "
-                    } transition-all duration-700 h-full bg-white text-primary   relative
-          `}
+                    } transition-all duration-700 h-full bg-white text-primary   relative`}
                   >
                     <div
                       className={` lg:absolute top-[50%] lg:translate-y-[-50%]  ${

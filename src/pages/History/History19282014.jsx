@@ -12,7 +12,7 @@ function History19282014(props) {
       description={t("history_item.item_8.desc")}
       img={Img2001}
       prev_year={`1925`}
-      prev_year_link={`1925`}
+      prev_year_link={`history/1925`}
       next_year={`2001-2013`}
       next_year_link={`history/2013`}
     ></HistoryComp>

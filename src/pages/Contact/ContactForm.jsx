@@ -5,6 +5,7 @@ import { states } from "../../data/States";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
+import { GoogleReCaptcha, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const referrals = ["CURBED.COM", "EBLAST", "EVENTS", "NEWSPAPERS/MEGAZINE", "NY TIMES.COM", "ONLINE SEARCH", "REAL DEAL", "REFERRAL", "SITE SIGNAGE"]
 
@@ -12,6 +13,8 @@ function ContactForm() {
   const { i18n, t } = useTranslation();
   const { countries } = useCountries();
   const [isBroker, setIsBroker] = useState(false);
+  const [ token, setToken ] = useState()
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const formik = useFormik({
     initialValues: {
@@ -59,7 +62,8 @@ function ContactForm() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if(formik.isValid) {
+    executeRecaptcha("action")
+    if (formik.isValid) {
       console.log(isBroker)
     }
   }
@@ -70,34 +74,36 @@ function ContactForm() {
       <p className="text-[13px] mt-5 text-center mb-2">
         {t("form.name.required_fields")}
       </p>
-      <div className="input_group mb-5 relative">
-        <input
-          type="text"
-          name="firstName"
-          {...formik.getFieldProps("firstName")}
-          className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder={t("form.placeholder.first_name")}
-        />
-        {formik.touched.firstName && formik.errors.firstName && (
-          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
-            {formik.errors.firstName}
-          </div>
-        )}
-      </div>
+      <div className="flex">
+        <div className="input_group mb-5 relative flex-1">
+          <input
+            type="text"
+            name="firstName"
+            {...formik.getFieldProps("firstName")}
+            className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
+            placeholder={t("form.placeholder.first_name")}
+          />
+          {formik.touched.firstName && formik.errors.firstName && (
+            <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
+              {formik.errors.firstName}
+            </div>
+          )}
+        </div>
 
-      <div className="input_group mb-5 relative">
-        <input
-          type="text"
-          name="lastName"
-          {...formik.getFieldProps("lastName")}
-          className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder={t("form.placeholder.last_name")}
-        />
-        {formik.touched.lastName && formik.errors.lastName && (
-          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
-            {formik.errors.lastName}
-          </div>
-        )}
+        <div className="input_group mb-5 relative w-1/2">
+          <input
+            type="text"
+            name="lastName"
+            {...formik.getFieldProps("lastName")}
+            className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
+            placeholder={t("form.placeholder.last_name")}
+          />
+          {formik.touched.lastName && formik.errors.lastName && (
+            <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
+              {formik.errors.lastName}
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="input_group mb-5 relative">
@@ -120,7 +126,7 @@ function ContactForm() {
           <Select
             {...formik.getFieldProps("state")}
             label={t("form.placeholder.state")}
-            onChange={value => {formik.setValues({...formik.values, state: value})}}
+            onChange={value => { formik.setValues({ ...formik.values, state: value }) }}
             className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9 !text-white p-[5px_10px] mb-2 placeholder:text-white"
           >
             {states.map((state) => (
@@ -172,7 +178,7 @@ function ContactForm() {
             {...formik.getFieldProps("country")}
             label={t("form.placeholder.country")}
             className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-            onChange={value => {formik.setValues({...formik.values, country: value})}}
+            onChange={value => { formik.setValues({ ...formik.values, country: value }) }}
             selected={(element) =>
               element &&
               React.cloneElement(element, {
@@ -220,42 +226,46 @@ function ContactForm() {
         )}
       </div>
 
-      <div className="input_group mb-5 relative">
-        <input
-          {...formik.getFieldProps("phone")}
-          type="number"
-          name="phone"
-          className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
-          placeholder={t("form.placeholder.number")}
-        />
-        {formik.touched.phone && formik.errors.phone && (
-          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
-            {formik.errors.phone}
+      <div className="flex">
+        <div className="input_group mb-5 relative flex-1">
+          <input
+            {...formik.getFieldProps("phone")}
+            type="number"
+            name="phone"
+            className="bg-[#8E8F90] border-none outline-none w-full text-[13px] h-9  text-white p-[5px_10px] mb-2 placeholder:text-white"
+            placeholder={t("form.placeholder.number")}
+          />
+          {formik.touched.phone && formik.errors.phone && (
+            <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
+              {formik.errors.phone}
+            </div>
+          )}
+        </div>
+
+        <div className="input_group mb-5 relative w-1/2">
+          <div className="custom_select">
+            <Select
+              label={t("form.placeholder.hear_about")}
+              {...formik.getFieldProps("referral")}
+              onChange={value => formik.setValues({ ...formik.values, referral: value })}
+              className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9  !text-white p-[5px_10px] mb-2 placeholder:text-white"
+            >
+              {
+                referrals.map((item, key) => (
+                  <Option key={key} value={item}>{item}</Option>
+                ))
+              }
+            </Select>
           </div>
-        )}
+          {formik.touched.referral && formik.errors.referral && (
+            <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
+              {formik.errors.referral}
+            </div>
+          )}
+        </div>
+
       </div>
 
-      <div className="input_group mb-5 relative">
-        <div className="custom_select">
-          <Select
-            label={t("form.placeholder.hear_about")}
-            {...formik.getFieldProps("referral")}
-            onChange={value => formik.setValues({...formik.values, referral: value})}
-            className="bg-[#8E8F90] !border-none !outline-none shadow-none w-full text-[13px] h-9  !text-white p-[5px_10px] mb-2 placeholder:text-white"
-          >
-            {
-              referrals.map((item, key) => (
-                <Option key={key} value={item}>{item}</Option>
-              ))
-            }
-          </Select>
-        </div>
-        {formik.touched.referral && formik.errors.referral && (
-          <div className="min-h-[20px] absolute start-0 top-[88%] text-sm text-[#ff0000]">
-            {formik.errors.referral}
-          </div>
-        )}
-      </div>
       <div className="input_group mb-5 relative">
         <div className="flex items-center justify-between">
           <span className="text-sm">{t("form.name.broker")}</span>
@@ -275,6 +285,15 @@ function ContactForm() {
           </div>
         </div>
       </div>
+
+      <GoogleReCaptcha
+        refreshReCaptcha={true}
+        action="action"
+        onVerify={token => {
+          setToken(token)
+        }}
+      />
+
       <div className="input_group mb-5 relative text-center mt-6 ">
         <button className="inline-block p-[8px_20px] transition-colors text-sm bg-white hover:bg-primary-2 text-black hover:text-white">
           {t("form.name.submit")}
